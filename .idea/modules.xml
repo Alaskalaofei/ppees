@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ppees.iml" filepath="$PROJECT_DIR$/ppees.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-dao/ppees-dao.iml" filepath="$PROJECT_DIR$/ppees-dao/ppees-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-serviceimpl/ppees-serviceimpl.iml" filepath="$PROJECT_DIR$/ppees-serviceimpl/ppees-serviceimpl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-web/ppees-web.iml" filepath="$PROJECT_DIR$/ppees-web/ppees-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-common/ppeescommon.iml" filepath="$PROJECT_DIR$/ppees-common/ppeescommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-service/ppeesservice.iml" filepath="$PROJECT_DIR$/ppees-service/ppeesservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppees-util/ppeesutil.iml" filepath="$PROJECT_DIR$/ppees-util/ppeesutil.iml" />
+    </modules>
+  </component>
+</project>
