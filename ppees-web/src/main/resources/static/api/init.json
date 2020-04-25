@@ -1,0 +1,104 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "LAYUI MINI",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "孕前优生档案信息",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "主页模板",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "主页一",
+              "href": "getlist",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "主页二",
+              "href": "page/welcome-2.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "主页三",
+              "href": "page/welcome-3.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "短信随访服务",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "短信收发",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "自定义短信随访",
+              "href": "getcustomsms",
+              "icon": "fa fa-envelope-o",
+              "target": "_self"
+            },
+            {
+              "title": "已发短信",
+              "href": "gettexted",
+              "icon": "fa fa-envelope",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    }
+  ,
+    {
+      "title":"影像系统",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "影像工作站",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "查询档案信息",
+              "href": "getbasicfiles",
+              "icon": "fa fa-inbox",
+              "target": "_self"
+            },
+            {
+              "title": "打开超声影像",
+              "href": "getopentheultrasoundimage",
+              "icon": "fa fa-file-photo-o",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
