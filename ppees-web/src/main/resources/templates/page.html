@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Layui</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<style type="text/css">
+			input{
+				width: 200px;
+				height: 36px;
+				text-align: center;
+			}
+			button{
+				width: 100px;
+			}
+			
+		</style>
+		<!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+	</head>
+
+	<body>
+		<div>
+			<form class="layui-form" action="" style="margin-top: 20px;">
+			<div>
+				<strong> 档案信息  :  &nbsp;</strong><input type="text"  style="margin-left: 21px;"/>  
+				 &nbsp;<strong> 档案时间  : </strong><input type="text" id="test1" placeholder="yyyy-MM-dd"  />
+				<strong>  至  ： </strong><input type="text" id="test2"   placeholder="yyyy-MM-dd"style="margin-left: 20px;"/>
+			</div>	
+			<br />
+			<br />
+			<div>
+				 <strong> 妻子姓名  :  &nbsp;</strong><input type="text" style="margin-left: 21px;"  />  
+				 &nbsp; <strong> 丈夫姓名 : </strong><input type="text"  /> 
+				
+			</div>
+			
+			<br />
+			<br />
+			<div>
+				 <strong> 妻子证件号码: </strong><input type="text"   />  
+				  &nbsp;<strong> 出生日期 : </strong><input type="text" id="test3"  placeholder="yyyy-MM-dd" /> 
+				 &nbsp; &nbsp; &nbsp;<strong> 丈夫证件号码  : &nbsp;</strong><input type="text"   />  
+				  &nbsp;<strong> 出生日期 : </strong><input type="text" id="test4"  placeholder="yyyy-MM-dd" /> 
+			</div>
+			<br />
+			<div>
+				<button type="button" class="layui-btn layui-btn-normal">查询</button>
+				<button type="reset"  class="layui-btn layui-btn-normal">清空</button>
+				<button type="button" class="layui-btn layui-btn-normal">返回</button>
+		   </div>		
+			</form>
+
+			<table id="demo" lay-filter="test"></table>
+		</div>
+	</body>
+
+	<script src="layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+	<script>
+		layui.use(['layer', 'table', 'jquery', 'laydate'], function() {
+			var layer = layui.layer,
+				table = layui.table,
+				$ = layui.jquery;
+				var laydate = layui.laydate;
+			laydate.render({
+				elem: '#test1'
+				//指定元素
+
+			});
+			laydate.render({
+				elem: '#test2'
+				//指定元素
+
+			});
+				laydate.render({
+				elem: '#test3'
+				//指定元素
+
+			});
+				laydate.render({
+				elem: '#test4'
+				//指定元素
+
+			});
+			table.render({
+				elem: '#demo',
+				height: 450,
+				url: 'page' //数据接口 
+				,
+				page: true //开启分页
+					,
+				cols: [
+					[
+						{ field: 'id', title: '编号', width: 150 }, { field: 'sex', title: '妻子姓名', width: 150 }, { field: 'city', title: '妻子出生日期', width: 150 }, { field: 'sign', title: '妻子证件号码', width: 150 }, { field: 'sex', title: '丈夫姓名', width: 150 }, { field: 'city', title: '丈夫出生日期', width: 150 }, { field: 'sign', title: '丈夫证件号码', width: 150 }, { field: 'experience', title: '档案日期', width: 150 }
+					]
+				],
+				limit: 7,
+				limits: [3, 5, 7],
+				defaultToolbar: ['filter'],
+				id: 'demo',
+
+			});
+		});
+	</script>
+
+	</body>
+
+</html>

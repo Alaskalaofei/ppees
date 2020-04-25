@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+	</head>
+
+	<body>
+		<form class="layui-form">
+			<h1>丈夫临床开单</h1>
+			<p><strong>血液</strong></p>
+			<div class="checkallbox">
+				&nbsp;&nbsp;&nbsp;<input lay-skin="primary" type="checkbox" id="checkall" name="type" lay-filter="allChoose" value="checkall" /><span>全选</span></div>
+			<div class="seach-box">
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="ABO">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="Rh">
+					</div>
+				</div>
+
+			</div>
+			
+			<hr />
+			
+			
+			
+			<p><strong>尿液常规检查</strong></p>
+			<div class="checkallbox">
+				&nbsp;&nbsp;&nbsp;<input lay-skin="primary" type="checkbox" id="checkall" name="type" lay-filter="allChoose3" value="checkall" /><span>全选</span></div>
+			<div class="seach-box4">
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="尿液常规检查 ">
+					</div>
+				</div>
+
+			</div>
+			
+			<hr/>
+			
+			<p><strong>病毒螺旋体检查</strong></p>
+			<div class="checkallbox">
+				&nbsp;&nbsp;&nbsp;<input lay-skin="primary" type="checkbox" id="checkall" name="type" lay-filter="allChoose4" value="checkall" /><span>全选</span></div>
+			<div class="seach-box5">
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="病毒螺旋体检查">
+					</div>
+				</div>
+
+			</div>
+			
+			<hr />
+			
+			<p><strong>乙肝血清学检查</strong></p>
+			<div class="checkallbox">
+				&nbsp;&nbsp;&nbsp;<input lay-skin="primary" type="checkbox" id="checkall" name="type" lay-filter="allChoose1" value="checkall" /><span>全选</span></div>
+			<div class="seach-box2">
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="HBs-Ag">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="HBs-Ab">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="Hbe-Ag">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="Hbe-Ab">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="HBc-Ab">
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+			
+			<p><strong>肝功能检测</strong></p>
+			<div class="checkallbox">
+				&nbsp;&nbsp;&nbsp;<input lay-skin="primary" type="checkbox" id="checkall" name="type" lay-filter="allChoose2" value="checkall" /><span>全选</span></div>
+			<div class="seach-box3">
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="谷丙转氨酶">
+						<input type="checkbox" name="like1[game]" lay-skin="primary" title="肌酐'">
+					</div>
+				</div>
+
+			</div>
+			
+			
+			
+			<hr/>
+			
+			
+
+			<div class="layui-form">
+				<div class="layui-form-item">
+					<label class="layui-form-label">医师签名: </label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" autocomplete="off" lay-verify="required|phone" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-inline">
+						<label class="layui-form-label">检查时间</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<hr />
+			
+			
+
+			<div class="print">
+				<button class="layui-btn  layui-btn-sm"> 保 存 </button>
+				<button type="button" class="layui-btn layui-btn-sm" onclick='javascript:window.print()'>
+				打印
+			</button>
+			</div>
+		</form>
+
+	</body>
+	<script src="layui/layui.js "></script>
+	<script type="text/javascript ">
+		layui.use(['form', 'jquery', 'laydate'], function() {
+			var form = layui.form;
+			var $ = layui.jquery;
+			var laydate = layui.laydate;
+			//点击全选, 勾选
+			form.on('checkbox(allChoose)', function(data) {
+				var child = $(".seach-box input[type='checkbox']");
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			
+			form.on('checkbox(allChoose1)', function(data) {
+				var child = $(".seach-box2 input[type='checkbox']");
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			
+			form.on('checkbox(allChoose2)', function(data) {
+				var child = $(".seach-box3 input[type='checkbox']");
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			form.on('checkbox(allChoose3)', function(data) {
+				var child = $(".seach-box4 input[type='checkbox']");
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			form.on('checkbox(allChoose4)', function(data) {
+				var child = $(".seach-box5 input[type='checkbox']");
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#test1'
+				//指定元素
+				
+			});
+		});
+	</script>
+
+</html>
