@@ -1,6 +1,9 @@
 package com.csdj.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class LetterOfConsentSignature {
@@ -8,6 +11,8 @@ public class LetterOfConsentSignature {
   private Integer id;
   private String signatureman;
   private String signaturefeman;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date signaturedate;
   private String serviceStaffsignature;
 

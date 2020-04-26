@@ -1,6 +1,9 @@
 package com.csdj.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class RegularProject {
@@ -12,10 +15,14 @@ public class RegularProject {
   private Integer nowdiseasetype;
   private String nowdiseasename;
   private Integer morbiditynumber;
-  private java.sql.Date lastmorbiditydate;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date lastmorbiditydate;
   private Integer whethermedicine;
   private Integer whetheroperation;
   private String operationname;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date operationdate;
   private Integer whethermarried;
   private Integer boynumber;
@@ -79,7 +86,7 @@ public class RegularProject {
     this.morbiditynumber = morbiditynumber;
   }
 
-  public java.sql.Date getLastmorbiditydate() {
+  public Date getLastmorbiditydate() {
     return lastmorbiditydate;
   }
 

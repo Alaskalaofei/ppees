@@ -42,7 +42,9 @@ public class Record {
   private String zipcode;
   private Integer telephonenumber;
   private Integer informedconsent;
-  private Date creationtime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date creationtime;
 
   public Integer getRid() {
     return rid;
