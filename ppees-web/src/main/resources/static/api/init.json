@@ -23,19 +23,19 @@
           "child": [
             {
               "title": "主页一",
-              "href": "getlist",
+              "href": "cxRecord/getRecord",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
             {
-              "title": "主页二",
-              "href": "page/welcome-2.html",
+              "title": "男性体格检查",
+              "href": "cxRecord/getnanHealth",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
             {
-              "title": "主页三",
-              "href": "page/welcome-3.html",
+              "title": "女体格检查",
+              "href": "cxRecord/getRecord",
               "icon": "fa fa-tachometer",
               "target": "_self"
             }

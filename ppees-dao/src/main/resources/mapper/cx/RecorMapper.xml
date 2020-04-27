@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csdj.mapper.cx.RecorMapper">
+    <select id="getlistRecord" resultType="Record">
+        SELECT * FROM  `record` where 1=1
+        <if test="rid!='' and rid!=null">
+            and rid=#{rid}
+        </if>
+        <if test=" creationtime1!=null and creationtime2!=null">
+            <![CDATA[ and DATE_FORMAT(creationtime, '%Y-%m-%d')>=  DATE_FORMAT(#{creationtime1}, '%Y-%m-%d') and  DATE_FORMAT(creationtime, '%Y-%m-%d')<=  DATE_FORMAT(#{creationtime2}, '%Y-%m-%d')  ]]>
+        </if>
+        <if test="fname!='' and fname!=null">
+            and fname like concat('%',#{fname},'%')
+        </if>
+        <if test="bname!='' and bname!=null">
+            and bname like concat('%',#{bname},'%')
+        </if>
+        <if test="fcertificate!='' and fcertificate!=null">
+            and fcertificate like concat('%',#{fcertificate},'%')
+        </if>
+        <if test=" fbirth!=null">
+            <![CDATA[ and DATE_FORMAT(fbirth, '%Y-%m-%d')>=  DATE_FORMAT(#{fbirth},'%Y-%m-%d') and  DATE_FORMAT(fbirth,'%Y-%m-%d')<=  DATE_FORMAT(#{fbirth}, '%Y-%m-%d')  ]]>
+        </if>
+        <if test="bcertificate!='' and bcertificate!=null">
+            and bcertificate like concat('%',#{bcertificate},'%')
+        </if>
+        <if test="birth!=null">
+            <![CDATA[ and DATE_FORMAT(birth, '%Y-%m-%d') >=  DATE_FORMAT(#{birth},'%Y-%m-%d') and  DATE_FORMAT(birth,'%Y-%m-%d')<=  DATE_FORMAT(#{birth}, '%Y-%m-%d') ]]>
+        </if>
+        LIMIT #{curPageNo},#{pageSize}
+    </select>
+
+    <select id="getLeaveCount" resultType="int">
+        select count(*) from `record`  where 1=1
+        <if test="rid!='' and rid!=null">
+            and rid=#{rid}
+        </if>
+        <if test=" creationtime1!=null and creationtime2!=null">
+            <![CDATA[ and DATE_FORMAT(creationtime, '%Y-%m-%d')>=  DATE_FORMAT(#{creationtime1}, '%Y-%m-%d') and  DATE_FORMAT(creationtime, '%Y-%m-%d')<=  DATE_FORMAT(#{creationtime2}, '%Y-%m-%d')  ]]>
+        </if>
+        <if test="fname!='' and fname!=null">
+            and fname like concat('%',#{fname},'%')
+        </if>
+        <if test="bname!='' and bname!=null">
+            and bname like concat('%',#{bname},'%')
+        </if>
+        <if test="fcertificate!='' and fcertificate!=null">
+            and fcertificate like concat('%',#{fcertificate},'%')
+        </if>
+        <if test="fbirth!=null">
+            <![CDATA[ and DATE_FORMAT(fbirth, '%Y-%m-%d')>=  DATE_FORMAT(#{fbirth}, '%Y-%m-%d') and  DATE_FORMAT(fbirth,'%Y-%m-%d')<=  DATE_FORMAT(#{fbirth}, '%Y-%m-%d')  ]]>
+        </if>
+        <if test="bcertificate!='' and bcertificate!=null">
+            and bcertificate like concat('%',#{bcertificate},'%')
+        </if>
+        <if test="birth!=null">
+            <![CDATA[ and DATE_FORMAT(birth, '%Y-%m-%d') >=  DATE_FORMAT(#{birth},'%Y-%m-%d') and  DATE_FORMAT(birth,'%Y-%m-%d')<=  DATE_FORMAT(#{birth}, '%Y-%m-%d') ]]>
+        </if>
+    </select>
+
+    <select id="getid" resultType="Record">
+
+         SELECT * FROM  `record` where  rid=#{rid}
+
+    </select>
+
+    <insert id="">
+
+    </insert>
+
+</mapper>
