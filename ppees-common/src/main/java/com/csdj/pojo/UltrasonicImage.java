@@ -1,5 +1,9 @@
 package com.csdj.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 public class UltrasonicImage {
 
@@ -7,7 +11,11 @@ public class UltrasonicImage {
   private String image;
   private Integer result;
   private String resultdescribe;
-  private Integer eId;
+  private Integer sid;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date inspectiontime;
+  private Integer rid;
 
   public Integer getId() {
     return id;
@@ -41,11 +49,29 @@ public class UltrasonicImage {
     this.resultdescribe = resultdescribe;
   }
 
-  public Integer geteId() {
-    return eId;
+  public Integer getSid() {
+    return sid;
   }
 
-  public void seteId(Integer eId) {
-    this.eId = eId;
+  public void setSid(Integer sid) {
+    this.sid = sid;
+  }
+
+  public Date getInspectiontime() {
+    return inspectiontime;
+  }
+
+  public void setInspectiontime(Date inspectiontime) {
+    this.inspectiontime = inspectiontime;
+  }
+
+  public Integer getRid() {
+    return rid;
+  }
+
+  public void setRid(Integer rid) {
+    this.rid = rid;
   }
 }
+
+
