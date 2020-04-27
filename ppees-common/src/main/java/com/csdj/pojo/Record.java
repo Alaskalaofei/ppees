@@ -90,7 +90,7 @@ public class Record {
     return birth;
   }
 
-  public void setBirth(java.sql.Date birth) {
+  public void setBirth(Date birth) {
     this.birth = birth;
   }
 
@@ -98,7 +98,7 @@ public class Record {
     return fbirth;
   }
 
-  public void setFbirth(java.sql.Date fbirth) {
+  public void setFbirth(Date fbirth) {
     this.fbirth = fbirth;
   }
 
@@ -218,7 +218,7 @@ public class Record {
     return marriage;
   }
 
-  public void setMarriage(java.sql.Date marriage) {
+  public void setMarriage(Date marriage) {
     this.marriage = marriage;
   }
 
