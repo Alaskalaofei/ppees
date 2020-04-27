@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>检查结果</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<form class="layui-form" action="">
+					<div class="layui-col-md12" style="background-color: #F1F1F1;border: 1px solid #a4a2a2;border-top: 0px;">
+						<div class="layui-row">
+							<div class="layui-col-md10 layui-col-md-offset1">
+								<fieldset class="layui-elem-field" style="padding: 1%;">
+									<legend>基本信息</legend>
+									<div class="layui-row">
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label">编号：</label>
+												<div class="layui-input-block">
+													<input type="text" name="title" required lay-verify="required" placeholder="请输入编号" autocomplete="off"
+													 class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label">姓名：</label>
+												<div class="layui-input-block">
+													<input type="text" name="title" required lay-verify="required" placeholder="请输入姓名" autocomplete="off"
+													 class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12" style="margin-left: 2%;">
+											<table id="demo" lay-filter="test"></table>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="layui-elem-field" style="padding: 1%;">
+									<legend>诊断结果</legend>
+									<div class="layui-row">
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label">检查结果：</label>
+												<div class="layui-input-block">
+													<input type="radio" name="aaa" value="男" title="未见异常" checked>
+													<input type="radio" name="aaa" value="女" title="存在异常情况,具体描述如下:">
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item layui-form-text">
+												<label class="layui-form-label">异常情况：</label>
+												<div class="layui-input-block" style="width: 80%;">
+													<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item layui-form-text">
+												<label class="layui-form-label">疾病诊断：</label>
+												<div class="layui-input-block" style="width: 80%;">
+													<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="layui-elem-field" style="padding: 1%;">
+									<legend>医生建议</legend>
+									<fieldset class="layui-elem-field" style="padding: 1%;">
+										<legend>医学建议</legend>
+										<div class="layui-row">
+											<div class="layui-col-md10 layui-col-md-offset1">
+												<div class="layui-form-item">
+													<div class="layui-inline" style="width: 50%;">
+														<div class="layui-input-inline">
+															<input type="checkbox" name="" title="未发现医学不宜结婚的异常情况和疾病" lay-skin="primary">
+														</div>
+													</div>
+													<div class="layui-inline">
+														<div class="layui-input-inline">
+															<input type="checkbox" name="" title="未发现医学不宜结婚的异常情况和疾病" lay-skin="primary">
+														</div>
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<div class="layui-inline" style="width: 50%;">
+														<div class="layui-input-inline">
+															<input type="checkbox" name="" title="未发现医学不宜结婚的异常情况和疾病" lay-skin="primary">
+														</div>
+													</div>
+													<div class="layui-inline">
+														<div class="layui-input-inline">
+															<input type="checkbox" name="" title="未发现医学不宜结婚的异常情况和疾病" lay-skin="primary">
+														</div>
+													</div>
+												</div>
+												<div class="layui-form-item">
+													<div class="layui-inline" style="width: 50%;">
+														<div class="layui-input-inline">
+															<input type="checkbox" name="" title="未发现医学不宜结婚的异常情况和疾病" lay-skin="primary">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset class="layui-elem-field" style="padding: 1%;">
+										<legend>详细检查信息</legend>
+									<div class="layui-row" style="margin-left: 8%;">
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">婚前卫生检查：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc"  cols="80" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">咨询指导结果：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc"  cols="80" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">医生补充病历：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc"  cols="80" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 35%;">进一步检查建议：</label>
+												<div class="layui-input-inline">
+													<select name="city" lay-verify="required">
+														<option value=""></option>
+														<option value="0">北京</option>
+														<option value="1">上海</option>
+														<option value="2">广州</option>
+														<option value="3">深圳</option>
+														<option value="4">杭州</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+											<div class="layui-form-item" style="margin-left: -30%">
+												<label class="layui-form-label" style="width: 35%;">建议检查项目：</label>
+												<div class="layui-input-inline">
+													<select name="city" lay-verify="required">
+														<option value=""></option>
+														<option value="0">北京</option>
+														<option value="1">上海</option>
+														<option value="2">广州</option>
+														<option value="3">深圳</option>
+														<option value="4">杭州</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item" style="margin-left: -21%">
+												<label class="layui-form-label" style="width: 35%;">婚检对象对进一步检查的态度：</label>
+												<div class="layui-input-inline">
+													<input type="radio" name="aa" value="男" title="接受" checked>
+													<input type="radio" name="aa" value="女" title="拒绝">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="layui-row" style="margin-left: 8%;">
+										<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label">转诊医院：</label>
+											<div class="layui-input-inline">
+												  <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label">转诊时间：</label>
+											<div class="layui-input-inline">
+												  <input id="examineDate" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											</div>
+											</div>
+										</div>
+									</div>
+									<div class="layui-row" style="margin-left: -1%;">
+										<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label" style="width: 35%;">预约复诊日期：</label>
+											<div class="layui-input-inline">
+												  <input id="examineDate2" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label" style="width: 35%;margin-left: -9%;">出具婚检证明日期：</label>
+											<div class="layui-input-inline">
+												  <input id="examineDate3" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											</div>
+											</div>
+										</div>
+									</div>
+										</fieldset>
+								</fieldset>
+								<div class="layui-row">
+									<div class="layui-col-md6" style="padding-left: 10%;">
+										<div class="layui-form-item">
+											<label class="layui-form-label">医生签名：</label>
+											<div class="layui-input-block"  style="width:40%;">
+												<select name="city" lay-verify="required">
+													<option value=""></option>
+													<option value="0">北京</option>
+													<option value="1">上海</option>
+													<option value="2">广州</option>
+													<option value="3">深圳</option>
+													<option value="4">杭州</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label">登记日期：</label>
+											<div class="layui-input-block"  style="width:40%;">
+												 <input id="examineDate4" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md6 layui-col-md-offset5">
+										<button type="button" class="layui-btn layui-btn-normal" style="width: 22%" id="btnaa">保存</button>
+									</div>
+									</div>
+									<br />
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div><br /><br /><br />
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['form', 'laydate', 'jquery', 'table'], function() {
+			var form = layui.form,
+				laydate = layui.laydate,
+				table = layui.table,
+				$ = layui.jquery;
+				laydate.render({
+					elem: '#examineDate'
+					//指定元素
+						
+				});
+				laydate.render({
+					elem: '#examineDate2'
+					//指定元素
+						
+				});
+				laydate.render({
+					elem: '#examineDate3'
+					//指定元素
+						
+				});
+				laydate.render({
+					elem: '#examineDate4'
+					//指定元素
+
+				});
+			//第一个实例
+			table.render({
+				elem: '#demo',
+				height: 312,
+				width: 900,
+				url: '/demo/table/user/' //数据接口
+					,
+				cols: [
+					[ //表头
+						{
+							field: 'id',
+							title: 'ID',
+							width: 145,
+							fixed: 'left'
+						}, {
+							field: 'username',
+							title: '项目名称',
+							width: 245
+						}, {
+							field: 'sex',
+							title: '结果',
+							width: 345,
+						}, {
+							field: 'city',
+							title: '检查医生',
+							width: 245
+						},
+					]
+				]
+			});
+		})
+	</script>
+</html>
