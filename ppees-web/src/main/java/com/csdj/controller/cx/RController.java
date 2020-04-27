@@ -1,12 +1,15 @@
 package com.csdj.controller.cx;
 
 import com.alibaba.fastjson.JSON;
+import com.csdj.pojo.HealthCheckup;
+import com.csdj.pojo.Intelligence;
 import com.csdj.pojo.Record;
 import com.csdj.service.cx.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -48,15 +51,31 @@ public class RController {
     @ResponseBody
     public String deleteByid(Integer rid, HttpSession  session){
         Record list=service.getid(rid);
-        session.setAttribute("rid", rid);
-        System.out.println(rid);
+        session.setAttribute("list", list);
         return  "null";
     }
 
     @RequestMapping("getnanHealth")
-    public String getnanHealth(){
+    public String getnanHealth(HttpSession session){
+        Record list= (Record) session.getAttribute("list");
         return  "nanHealth";
     }
+
+    @RequestMapping(value="/findRole",produces= {"application/json;charset=utf-8"})
+    @ResponseBody
+    public String findRole() {
+        return JSON.toJSONString(service.selectAllSysUser());
+    }
+
+    @GetMapping("/add")
+    @ResponseBody
+    public  String add(HealthCheckup healthCheckup,HttpSession session){
+
+        service.addHealthCheckup(healthCheckup);
+        return "nanHealth";
+    }
+
+
 
 
 }

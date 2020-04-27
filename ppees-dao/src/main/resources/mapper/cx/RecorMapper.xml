@@ -64,8 +64,14 @@
 
     </select>
 
-    <insert id="">
+    <select id="selectAllSysUser" resultType="SysUser">
+		SELECT * FROM sys_user
+	</select>
 
+    <insert id="addHealthCheckup" parameterType="HealthCheckup">
+   insert into `health_checkup`(`height`,`weight`,`heartrate`,`bodymassindex`,`systolicpressure`,`diastolicpressure`,`stateabnormality`,`Intelligence`,`Facialfeatures`,`Specialposture`,`Specialfacecondition`,`skinandhair`,`Thyroidcondition`,`examinedoctorid`,`examinedate`,`certificate`)
+value(#{height},#{weight},#{heartrate},#{bodymassindex},#{systolicpressure},#{diastolicpressure},#{stateabnormality},#{Intelligence},#{Facialfeatures},#{Specialposture},#{Specialfacecondition},#{skinandhair},#{Thyroidcondition},#{examinedoctorid},#{examinedate},#{certificate})
     </insert>
+
 
 </mapper>

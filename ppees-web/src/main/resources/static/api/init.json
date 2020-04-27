@@ -23,13 +23,13 @@
           "child": [
             {
               "title": "主页一",
-              "href": "getlist",
+              "href": "cxRecord/getRecord",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
             {
               "title": "主页二",
-              "href": "page/welcome-2.html",
+              "href": "cxRecord/getnanHealth",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },

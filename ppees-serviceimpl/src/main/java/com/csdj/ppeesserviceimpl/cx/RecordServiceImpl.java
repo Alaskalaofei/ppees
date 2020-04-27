@@ -1,7 +1,7 @@
 package com.csdj.ppeesserviceimpl.cx;
 
 import com.csdj.mapper.cx.RecorMapper;
-import com.csdj.pojo.Record;
+import com.csdj.pojo.*;
 import com.csdj.service.cx.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +29,18 @@ public class RecordServiceImpl implements RecordService {
     public Record getid(Integer rid) {
         return mapper.getid(rid);
     }
+
+    @Override
+    public Integer addHealthCheckup(HealthCheckup healthCheckup) {
+        return mapper.addHealthCheckup(healthCheckup);
+    }
+
+    @Override
+    public List<SysUser> selectAllSysUser() {
+        return mapper.selectAllSysUser();
+    }
+
+
+
 
 }

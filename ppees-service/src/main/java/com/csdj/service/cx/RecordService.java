@@ -1,6 +1,9 @@
 package com.csdj.service.cx;
 
+import com.csdj.pojo.HealthCheckup;
+import com.csdj.pojo.*;
 import com.csdj.pojo.Record;
+import com.csdj.pojo.SysUser;
 
 import java.util.Date;
 import java.util.List;
@@ -16,4 +19,11 @@ public interface RecordService {
     public  int getLeaveCount(Integer rid,Date creationtime1,Date creationtime2,  String fname, String bname,String  fcertificate, Date fbirth, String  bcertificate,  Date birth);
 
     Record getid(Integer rid );
+
+    Integer addHealthCheckup(HealthCheckup healthCheckup);
+
+    List<SysUser> selectAllSysUser();
+
+
+
 }
