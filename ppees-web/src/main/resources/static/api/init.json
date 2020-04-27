@@ -99,6 +99,97 @@
           ]
         }
       ]
+    },
+    {
+      "title": "婚检系统",
+      "icon": "",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "申报与检查证明",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "婚前医学检查证明（男）",
+              "href": "MedicalCertificate/goInspectioncertificatem",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "婚前医学检查证明（女）",
+              "href": "MedicalCertificate/goInspectioncertificatef",
+              "icon": "",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "女性常规检查",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "常规扩展检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "X射线检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "口腔检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "检查结果",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            }
+          ]
+        },{
+          "title": "男性常规检查",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "常规扩展检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "X射线检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "口腔检查",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            },
+            {
+              "title": "检查结果",
+              "href": "",
+              "icon": "",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

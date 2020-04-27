@@ -45,6 +45,33 @@ public class Record {
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creationtime;
+    private String mheadportrait;
+    private  String fheadportrait;
+    private  Integer Consanguinity;
+
+  public String getMheadportrait() {
+    return mheadportrait;
+  }
+
+  public void setMheadportrait(String mheadportrait) {
+    this.mheadportrait = mheadportrait;
+  }
+
+  public String getFheadportrait() {
+    return fheadportrait;
+  }
+
+  public void setFheadportrait(String fheadportrait) {
+    this.fheadportrait = fheadportrait;
+  }
+
+  public Integer getConsanguinity() {
+    return Consanguinity;
+  }
+
+  public void setConsanguinity(Integer consanguinity) {
+    Consanguinity = consanguinity;
+  }
 
   public Integer getRid() {
     return rid;

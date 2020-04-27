@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>知情同意书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+	</head>
+	<body>
+				<div class="layui-container" style="width: 1100px;">
+  				<h1 > <center>BBBBBBBBBBBBBBBBBBBBBBB </center></h1>
+  				<h2><center>AAAAAAAAAAAAA</center></h2>
+  				<p style=""><center>表面上是在一定程度上缓解了以上问题，但实质上这种代码耦合并没有改变。通过IoC模式可以彻底解决这种耦合，它把耦合从代码中移出去，放到统一的XML 文件中，通过一个容器在需要的时候把这个依赖关系形成，即把需要的接口实现注入到需要它的类中，这可能就是“依赖注入”说法的来源了。
+IoC模式，系统中通过引入实现了IoC模式的IoC容器，即可由IoC容器来管理对象的生命周期、依赖关系等，从而使得应用程序的配置和依赖性规范与实际的应用程序代码分离。其中一个特点就是通过文本的配置文件进行应用程序组件间相互关系的配置，而不用重新修改并编译具体的代码。
+当前比较知名的IoC容器有：Pico Container、Avalon 、Spring、JBoss、HiveMind、EJB等。
+在上面的几个IoC容器中，轻量级的有Pico Container、Avalon、Spring、HiveMind等，超重量级的有EJB，而半轻半重的有容器有JBoss，Jdon等。
+可以把IoC模式看作工厂模式的升华，把IoC容器看作是一个大工厂，只不过这个大工厂里要生成的对象都是在XML文件中给出定义的。利用Java 的“反射”编程，根据XML中给出的类定义生成相应的对象。从实现来看，以前在工厂模式里写死了的对象，IoC模式改为配置XML文件，这就把工厂和要生成的对象两者隔离，极大提高了灵活性和可维护性。
+IoC中最基本的Java技术就是“反射”编程。通俗的说，反射就是根据给出的类名（字符串）来生成对象。这种编程方式可以让应用在运行时才动态决定生成哪一种对象。反射的应用是很广泛的，像Hibernate、Spring中都是用“反射”做为最基本的技术手段。</center></p>
+				<form class="layui-form" action="" style="margin-top: 20px;">
+
+					<div class="layui-col-md6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">系统编号</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">系统编号</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">系统编号</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					
+				</div>
+				<div class="layui-col-md6">
+					<div class="layui-form-item">
+						<label class="layui-form-label">日期</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" id="test1" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">日期</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" id="test2" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">日期</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" id="test3" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					
+				</div>
+				
+
+		
+					<div style="align-content: center;">
+						<div class="print">
+							<button class="layui-btn  layui-btn-sm"> 保 存 </button>
+							<button type="button" class="layui-btn layui-btn-sm" onclick='javascript:window.print()'>
+									打印
+							</button>
+						</div>
+					</div>
+				</form>
+
+		</div>
+		
+	</body>
+	
+	
+	<script src="layui/layui.js "></script>
+	<script type="text/javascript ">
+		layui.use(['layer', 'form', 'laydate'], function() {
+			var layer = layui.layer,
+				form = layui.form;
+			var laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#test1'
+				//指定元素
+
+			});
+			laydate.render({
+				elem: '#test2'
+				//指定元素
+
+			});
+			laydate.render({
+				elem: '#test3'
+				//指定元素
+
+			});
+		});
+	</script>
+	
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>医学证明男</title>
+		<link rel="stylesheet" href="/layui/css/layui.css" />
+	</head>
+	<body>
+		<div id="main" style="width:70%;margin:20px auto;">
+	<table style="width: 60%;float:left;" >
+			<tr>
+			<td>
+			<div>
+			<div>
+            <span>系统编号： </span>
+            <input type="text" readonly="readonly" id="ID" name="ID">
+				<input type="hidden" id="certificate">
+       		</div>
+       		</div>
+			</td>
+			
+			
+			
+			</tr>
+			<tr>
+			<td>
+			<div>
+			<div>
+            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名： </span>
+            <input type="text"  readonly="readonly" name="mname"  id="mname">
+       		</div>
+       		</div>
+			</td>
+			</tr>
+			<tr>
+			<td >
+			<div >
+			<div >
+            <span >性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别： </span>
+            <input type="text"   readonly="readonly" id="sex" name="fidCard">
+       		</div>
+       		</div>
+			</td>
+			</tr>
+			<tr>
+			<td>
+			<div>
+			<div>
+            <span>对方姓名： </span>
+            <input type="text" readonly="readonly" id="fname" name="fbirthDate">
+       		</div>
+       		</div>
+			</td>
+			</tr>
+			<tr>
+			<td>
+			&nbsp;&nbsp;&nbsp;直系、三代内旁系血亲关系：<span id="intermarry"></span>
+			</td>
+			</tr>
+		</table>
+		
+		<table style="float:left;width: 40%;">
+		<tr>
+			<td>
+			<div class="panel-body" style="width: 200px; height: 183px;margin:3% 20%">
+  				<img id="headimg" style="width: 100%; height: 100%;">
+			</div>
+			</td>
+		</tr>
+		</table>
+		
+		<div style="padding: 23% 0px 0px 0px">
+		<div>
+		<div>
+			<h3>婚前医学检查结果：</h3>
+		</div>
+		<table width="100%">
+			<tr>
+				<td>
+				<div>
+                <div>
+                    <span>
+                     <input type="radio" name="isIll" value="1" ></span>
+                    <input type="text"  readonly="readonly" value="未见异常">
+                </div>
+            	</div>
+				</td>
+				<td>
+				<div>
+                <div>
+                    <span>
+                        <input type="radio" name="isIll" value="0"></span>
+                    <input type="text" readonly="readonly" value="存在异常情况，描述如下">
+                </div>
+            	</div>
+				</td>
+			</tr>
+			</table>
+			
+			<div>
+			<textarea style="border:1px solid powderblue;" rows="4" cols="100" id="yic"></textarea>
+			</div>
+        </div>
+		
+		
+		
+		<div >
+		<div>
+			<h3>医学意见</h3>
+		</div>
+			<div>
+				<table>
+				<tr>
+				<td>
+				<div>
+                <div>
+                    <span>
+                        <input type="checkbox" name="lastcheck" value="0"></span>
+                    <input type="text" readonly="readonly" value="未发现医学上不宜结婚的情形">
+                </div>
+            	</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div>
+                <div>
+                    <span>
+                        <input type="checkbox" name="lastcheck"  value="1"></span>
+                    <input type="text" readonly="readonly" value="建议暂缓结婚">
+                </div>
+            	</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div>
+                <div >
+                    <span >
+                        <input type="checkbox"  name="lastcheck" value="2"></span>
+                    <input type="text" readonly="readonly" value="建议不宜生育">
+                </div>
+            	</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div>
+                <div>
+                    <span>
+                        <input type="checkbox" name="lastcheck" value="3"></span>
+                    <input type="text" readonly="readonly" value="建议不宜结婚">
+                </div>
+            	</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div >
+                <div >
+                    <span >
+                        <input type="checkbox"  name="lastcheck" value="4"></span>
+                    <input type="text" readonly="readonly" value="建议采取医学措施，尊重受检者意愿">
+                </div>
+            	</div>
+				</td>
+				</tr>
+				</table>
+			</div>
+        </div>
+
+        <table border="0"  cellspacing="" cellpadding="" width="100%">
+			<tr style="text-align: center;">
+				<td class="tdsmall">
+					<button type="submit"  id="myButton" data-loading-text="Loading..." class="layui-btn layui-btn-xs"  autocomplete="off">
+		 保存(s)
+		</button>
+
+		<button type="button" id="myButton3" data-loading-text="Loading..."  class="layui-btn layui-btn-xs" autocomplete="off">
+		 打印预览
+		</button>
+		
+		</td>
+		</tr>
+		</table>
+        </div>
+</div>
+		<script src="/layui/layui.js "></script>
+		<script type="text/javascript ">
+			layui.use(['form', 'jquery', 'laydate'], function() {
+				var form = layui.form;
+				var $ = layui.jquery;
+				var laydate = layui.laydate;
+				$(document).ready(function(){
+					archives();
+				})
+				function archives(){
+					$.ajax({
+						url:"getrecordByid",
+						data:"",
+						type:"post",
+						dataType:"text",
+						success:function(result){
+							date=eval("("+result+")");
+							$("#mname").val(date.bname);
+							$("#ID").val(date.rid);
+							$("#sex").val("男");
+							$("#fname").val(date.fname);
+                            $("#headimg").attr("src", date.mheadportrait);
+							$("#certificate").val(date.bcertificate);
+                            if(date.consanguinity==0){
+								$("#intermarry").html("否");
+							}else{
+								$("#intermarry").html("是");
+							}
+						}
+					})
+				}
+
+			})
+		</script>
+
+	</body>
+</html>
