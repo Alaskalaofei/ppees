@@ -1,6 +1,9 @@
 package com.csdj.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Record {
@@ -10,8 +13,12 @@ public class Record {
   private String fname;
   private String bcertificate;
   private String fcertificate;
-  private java.sql.Date birth;
-  private java.sql.Date fbirth;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date birth;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date fbirth;
   private String boccupation;
   private String foccupation;
   private String bnation;
@@ -26,14 +33,18 @@ public class Record {
   private String faccount;
   private String bphone;
   private String fphone;
-  private java.sql.Date marriage;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date marriage;
   private String bregistered;
   private String fregistered;
   private String present;
   private String zipcode;
   private Integer telephonenumber;
   private Integer informedconsent;
-  private Date creationtime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date creationtime;
 
   public Integer getRid() {
     return rid;
@@ -75,19 +86,19 @@ public class Record {
     this.fcertificate = fcertificate;
   }
 
-  public java.sql.Date getBirth() {
+  public Date getBirth() {
     return birth;
   }
 
-  public void setBirth(java.sql.Date birth) {
+  public void setBirth(Date birth) {
     this.birth = birth;
   }
 
-  public java.sql.Date getFbirth() {
+  public Date getFbirth() {
     return fbirth;
   }
 
-  public void setFbirth(java.sql.Date fbirth) {
+  public void setFbirth(Date fbirth) {
     this.fbirth = fbirth;
   }
 
@@ -203,11 +214,11 @@ public class Record {
     this.fphone = fphone;
   }
 
-  public java.sql.Date getMarriage() {
+  public Date getMarriage() {
     return marriage;
   }
 
-  public void setMarriage(java.sql.Date marriage) {
+  public void setMarriage(Date marriage) {
     this.marriage = marriage;
   }
 
