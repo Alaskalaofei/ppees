@@ -1,6 +1,9 @@
 package com.csdj.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class RResult2 {
@@ -16,8 +19,12 @@ public class RResult2 {
   private String examinesuggestproject;
   private Integer examineattitude;
   private String referralhospital;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date referraldate;
   private Date subsequentvisitdate;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date premaritalexaminationcertificatedate;
   private Integer eid;
 

@@ -1,6 +1,9 @@
 package com.csdj.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class SysUser {
@@ -8,6 +11,8 @@ public class SysUser {
   private Integer id;
   private String username;
   private String password;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date createdate;
   private String identity;
 

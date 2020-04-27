@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" />
 <html>
 <head>
     <meta charset="utf-8">
@@ -67,6 +68,9 @@
                         </dd>
                         <dd>
                             <a href="javascript:;" layuimini-content-href="page/user-password.html" data-title="修改密码" data-icon="fa fa-gears">修改密码</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" layuimini-content-href="GetControll/getusermanagement" data-title="用户管理" data-icon="fa fa-gears">用户管理</a>
                         </dd>
                         <dd>
                             <hr>
@@ -161,7 +165,7 @@
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {
-                window.location = '../static/page/login-1.html';
+                window.location = 'login-1.html';
             });
         });
     });
