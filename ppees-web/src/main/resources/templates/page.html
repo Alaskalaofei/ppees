@@ -97,8 +97,7 @@
 		</div>
 </form>
 		<script type="text/html" id="barDemo">
-			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">选中</a>
 		</script>
 
 </body>
@@ -126,23 +125,21 @@
 		});
 		table.render({
 			elem: '#demo',
-			height: 450,
 			url: 'page' //数据接口
 			,
-			toolbar: '#toolbarDemo', //开启头部工具栏，并为其绑定左侧模板
 			page: true //开启分页
 			,
 			cols: [
 				[
 					{type: 'checkbox', fixed: 'left'},
-					{ field: 'rid', title: '编号', width: 150 },
-					{ field: 'fname', title: '妻子姓名', width: 150 },
-					{ field: 'fbirth', title: '妻子出生日期', width: 150 },
-					{ field: 'fcertificate', title: '妻子证件号码', width: 150 },
-					{ field: 'bname', title: '丈夫姓名', width: 150 },
-					{ field: 'birth', title: '丈夫出生日期', width: 150 },
-					{ field: 'bcertificate', title: '丈夫证件号码', width: 150 },
-					{ field: 'creationtime', title: '档案日期', width: 150 },
+					{ field: 'rid', title: '编号'},
+					{ field: 'fname', title: '妻子姓名'},
+					{ field: 'fbirth', title: '妻子出生日期',templet:function (row){return createTime(row.fbirth); } },
+					{ field: 'fcertificate', title: '妻子证件号码'},
+					{ field: 'bname', title: '丈夫姓名'},
+					{ field: 'birth', title: '丈夫出生日期',templet:function (row){return createTime(row.birth); } },
+					{ field: 'bcertificate', title: '丈夫证件号码'},
+					{ field: 'creationtime', title: '档案日期',templet:function (row){return createTime(row.creationtime); } },
 					{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
 				]
 			],
@@ -189,12 +186,11 @@
 
 					$.ajax({
 						url : "deleteByid",
-						data : {"rid":obj.data.rid},
+						data : {rid:obj.data.rid},
 						type : "post",
 						dataType : "text",
 						success : function(result) {
-
-
+								layer.msg("选中成功");
 						}
 					})
 
@@ -204,7 +200,22 @@
 
 	});
 </script>
-
+<script type="text/javascript">
+	function createTime(v){
+		var date = new Date(v);
+		var y = date.getFullYear();
+		var m = date.getMonth()+1;
+		m = m<10?'0'+m:m;
+		var d = date.getDate();
+		d = d<10?("0"+d):d;
+		var h = date.getHours();
+		h = h<10?("0"+h):h;
+		var M = date.getMinutes();
+		M = M<10?("0"+M):M;
+		var str = y+"-"+m+"-"+d/*+" "+h+":"+M*/;
+		return str;
+	}
+</script>
 </body>
 
 </html>
