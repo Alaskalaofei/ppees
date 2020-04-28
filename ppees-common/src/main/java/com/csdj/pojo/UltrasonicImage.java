@@ -17,6 +17,16 @@ public class UltrasonicImage {
   private Date inspectiontime;
   private String certificate;
 
+  private SysUser sysUser;
+
+    public SysUser getSysUser() {
+        return sysUser;
+    }
+
+    public void setSysUser(SysUser sysUser) {
+        this.sysUser = sysUser;
+    }
+
     public Integer getId() {
         return id;
     }
