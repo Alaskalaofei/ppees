@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csdj.mapper.lx.FollowUpVisitMapper">
+
+    <resultMap id="getfoll" type="FollowUpVisit">
+        <id column="id" property="id"/>
+        <result column="rid" property="rid"/>
+        <result column="assessmentcontent" property="assessmentcontent"/>
+        <association property="record" javaType="Record">
+
+            <result column="fname" property="fname"/>
+            <result column="fcertificate" property="fcertificate"/>
+            <result column="fage" property="fage"/>
+            <result column="fbirth" property="fbirth"/>
+            <result column="fphone" property="fphone"/>
+        </association>
+    </resultMap>
+    <!--查询已发短信-->
+    <select id="getFollowUpVisitBydate" resultMap="getfoll">
+        SELECT * FROM `follow_up_visit` f,`record` r WHERE f.`rid`=r.`rid`
+        <if test="  creationtime1!=null and creationtime1!='' and creationtime2!=null and creationtime2!=''">
+            and creationtime  between #{creationtime1} and #{creationtime2}
+                    </if>
+        LIMIT #{index},#{pageSize}
+    </select>
+    <!--查询已发短信总数-->
+    <select id="getFollowUpVisitBydateByCoutn" resultType="java.lang.Integer">
+        SELECT count(*) FROM `follow_up_visit` f,`record` r WHERE f.`rid`=r.`rid`
+        <if test=" creationtime1!=null and creationtime1!='' and creationtime2!=null and creationtime2!=''">
+            and creationtime  between #{creationtime1} and #{creationtime2}
+            </if>
+    </select>
+
+    <!--查询女方档案，按条件查询-->
+    <select id="getFRecordByRecord" resultType="Record">
+       SELECT * FROM `record`
+       <where>
+        <if test="fname!=null and fname!=''">
+            `fname`like concat('%',#{fname},'%')
+        </if>
+        <if test="fcertificate!=null and fcertificate!=''">
+            AND `fcertificate`=#{fcertificate}
+        </if>
+           <if test=" creationtime1!=null and creationtime1!='' and creationtime2!=null and creationtime2!=''">
+               and creationtime  between #{creationtime1} and #{creationtime2}
+           </if>
+       </where>
+        LIMIT #{index},#{pageSize}
+    </select>
+    <!--查询女方档案总数-->
+    <select id="getFRecordByRecordByCount" resultType="java.lang.Integer">
+        SELECT count(*) FROM `record`
+        <where>
+            <if test="fname!=null and fname!=''">
+                `fname`like concat('%',#{fname},'%')
+            </if>
+            <if test="fcertificate!=null and fcertificate!=''">
+                AND `fcertificate`=#{fcertificate}
+            </if>
+            <if test=" creationtime1!=null and creationtime1!='' and creationtime2!=null and creationtime2!=''">
+                and creationtime  between #{creationtime1} and #{creationtime2}
+                            </if>
+        </where>
+    </select>
+    <!--批量新增已发信息-->
+    <insert id="addFollowUpVisit">
+        INSERT INTO `follow_up_visit`(`rid`,`assessmentcontent`) VALUES
+        <foreach collection="list" item="follow" separator=",">
+            (#{follow.rid},#{follow.assessmentcontent})
+        </foreach>
+    </insert>
+</mapper>

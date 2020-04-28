@@ -96,12 +96,11 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" type="text/javascript"></script>
     <script th:inline="none">
-        layui.use(["table","jquery","layer","form","laydate","laypage"], function(){
+        layui.use(["table","jquery","layer","form","laypage"], function(){
             var table = layui.table
                 ,$=layui.jquery
                 ,layer=layui.layer
                 ,form = layui.form
-                ,laydate = layui.laydate
                 ,laypage = layui.laypage;
             table.render({
                 elem: '#test'

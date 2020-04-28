@@ -57,13 +57,13 @@
           "child": [
             {
               "title": "自定义短信随访",
-              "href": "getcustomsms",
+              "href": "GetControll/getcustomsms",
               "icon": "fa fa-envelope-o",
               "target": "_self"
             },
             {
               "title": "已发短信",
-              "href": "gettexted",
+              "href": "GetControll/gettexted",
               "icon": "fa fa-envelope",
               "target": "_self"
             }
@@ -86,13 +86,13 @@
           "child": [
             {
               "title": "查询档案信息",
-              "href": "getbasicfiles",
+              "href": "GetControll/getbasicfiles",
               "icon": "fa fa-inbox",
               "target": "_self"
             },
             {
               "title": "打开超声影像",
-              "href": "getopentheultrasoundimage",
+              "href": "GetControll/getopentheultrasoundimage",
               "icon": "fa fa-file-photo-o",
               "target": "_self"
             }

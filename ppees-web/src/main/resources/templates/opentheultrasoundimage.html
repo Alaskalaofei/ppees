@@ -12,6 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/layui-src@2.4.5/dist/layui.all.js"></script>
 <script src="http://www.magicalcoder.com/assets/js/common.js"></script>
 <script src="http://www.magicalcoder.com/magicaldrag/assets/drag/ui/magicalcoder/1.1.0/magicalcoder.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+    <script src="../layui/layer-v3.1.1/layer/layer.js"></script>
 </head>
 <body class="layui-form" style="background-color:#eee;padding: 20px;">
     <div class="layui-fluid">
@@ -20,249 +22,144 @@
                 <label class="layui-form-label" style="border-width: 1px; border-color: rgb(181, 181, 181); text-align: center; font-size: 17px; font-weight: bold;">基本信息</label>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">档案编号</label>
+				<input id="rid" name="rid" class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off"  th:value="${session.Record!=null ? session.Record.rid:''}"  />
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">妻子姓名</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.fname:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">出生日期</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record}==null?'':${#dates.format(session.Record.fbirth, 'yyyy-MM-dd')}" />
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">年龄</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.fage:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">身份证号</label>
+				<input id="fcertificate" readonly name="fcertificate" class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.fcertificate:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">丈夫姓名</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.bname:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">出生日期</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record}==null?'':${#dates.format(session.Record.birth, 'yyyy-MM-dd')}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">年龄</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.bage:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">身份证号</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="${session.Record!=null ? session.Record.bcertificate:''}"/>
             </div>
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
-            </div>
-            <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">标题</label>
-				<input class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" />
+                <label class="layui-form-label" style="background-color: rgb(225, 225, 225); border-style: solid; border-color: rgb(181, 181, 181); border-width: 1px; text-align: center; font-size: 16px;">操作医生</label>
+				<input class="layui-input" readonly style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off" th:value="hhh"/>
             </div>
         </form>
         <!--b超图片-->
-        <form class="layui-form" style="width: 40%; position: absolute; top: 11px; left: 565px;">
+        <form class="layui-form" style="width: 40%; position: absolute; top: 11px; left: 500px;">
             <div class="layui-form-item">
-                <img style="width:100%;" src="img.jpg" />
+                <img id="ulimg"  style="width:100%;" />
             </div>
         </form>
         <form class="layui-form" style="width: 25%; position: absolute; top: 11px; height: 100%; left: 75%;">
             <div class="layui-form-item" style="height: 0px; padding-bottom: 60px; padding-left: 0px;">
-                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">标题</label><div class="magical-coder-tmp" style="width: 100%; height: 20px;">
-                    <select style="height: 20px;"><option value="0">选项A</option><option value="1">选项B</option></select>
+                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">检查结果</label><div class="magical-coder-tmp" style="width: 100%; height: 20px;">
+                    <select id="select_result" style="height: 20px;" >
+                        <option value="0">正常</option>
+                        <option value="1">异常</option>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item" style="height: 0px; margin-top: 0px; bottom: 0px; padding-bottom: 0px; margin-bottom: 150px;">
-                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">超声所见(详细)</label><textarea class="layui-textarea" placeholder="请输入内容" rows="5" cols="16"></textarea>
+                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">超声所见(详细)</label><textarea name="resultdescribe" id="resultdescribe" class="layui-textarea" placeholder="请输入内容" rows="5" cols="16"></textarea>
             </div>
             <div class="layui-form-item" style="height: 0px; left: 0px; top: 0px; margin-bottom: 70px;">
-                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">检查日期</label><input name="createTime" class="magicalcoder-laydate layui-input" type="text" autocomplete="off" lay-verify="magicalCoderVerify" />
+                <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">检查日期</label><input id="inspectiontime" name="inspectiontime" class="magicalcoder-laydate layui-input" type="text" autocomplete="off" lay-verify="magicalCoderVerify" />
             </div>
             <div class="layui-form-item" style="height: 0px; padding-top: 0px;">
                 <label class="layui-form-label" style="border-width: 1px; text-align: left; font-size: 16px; width: 50%;">医生签名:</label><div class="magical-coder-tmp" style="width: 100%; height: 20px;">
-                    <select style="height: 20px;"><option value="0~~27caf9d0-9c0e-44d6-8c11-9ab7e5de4933">选项A</option><option value="1~~8cdbc5f8-1ded-45c1-9012-7180c5191c69">选项B</option></select>
+                <input id="username" name="username"  class="layui-input" style="width: 51.7857%; height: 40px; max-width: 290%;" type="text" autocomplete="off"/>
                 </div>
             </div>
         </form>
         <form class="layui-form" style="width: 50%; position: absolute; top: 520px; left: 35%;">
             <div class="layui-form-item" style="margin-top: 0px; margin-bottom: -20px;">
-                <a class="layui-btn" style="width: 15.6704%; margin-left: 25px;">按钮</a><a class="layui-btn" style="width: 17.0261%;">按钮</a><a class="layui-btn" style="width: 14.2165%;">按钮</a>
+                <span type="button" onclick="unlselect()" class="layui-btn" style="width: 15.6704%; margin-left: 25px;"> 查询超声照片</span><!--<a class="layui-btn" style="width: 17.0261%;">按钮</a><a class="layui-btn" style="width: 14.2165%;">按钮</a>-->
             </div>
         </form>
     </div>
-    <script>
-        //以下脚本为标签属性转换成layui组件的还原过程
-        //调试:打开浏览器控制台(F12),在代码中某行增加 debugger 即可调试
-        var $ = layui.jquery, laytpl = layui.laytpl, laydate = layui.laydate, form = layui.form, layedit = layui.layedit, slider = layui.slider, element = layui.element, colorpicker = layui.colorpicker, upload = layui.upload, rate = layui.rate, carousel = layui.carousel, table = layui.table, flow = layui.flow;
-        var magicalDragLayuiUtil = {
-            rebuildLayUiControls: function () {
-                var _t = this;
-                //日期
-                $(".magicalcoder-laydate").each(function (idx, item) {
-                    laydate.render(_t.iteratorAttr({
-                        elem: item
-                    }, item));
-                })
-                //富文本
-                $(".magicalcoder-layedit").each(function (idx, item) {
-                    var mcDataId = $(item).attr("id");
-                    if (mcDataId) {
-                        layedit.build(mcDataId, {
-                            height: 300
-                        });
-                    }
-                })
-                //外键
-                $(".magicalcoder-foreign-select2").each(function (idx, item) {
-                    var mcDataId = $(item).attr("id");
-                    if (mcDataId) {
-                        $("#" + mcDataId).select2({
-                            allowClear: true,
-                            width: "150px",
-                            delay: 500,
-                        });
-                    }
-                })
-                //颜色选择器
-                $(".magicalcoder-color-picker").each(function (idx, item) {
-                    colorpicker.render(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //上传组件
-                $(".magicalcoder-layupload").each(function (idx, item) {
-                    upload.render(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //滑块
-                $(".magicalcoder-slider").each(function (idx, item) {
-                    slider.render(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //评分
-                $(".magicalcoder-rate").each(function (idx, item) {
-                    rate.render(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //轮播
-                $(".layui-carousel").each(function (idx, item) {
-                    carousel.render(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //流加载
-                $(".magicalcoder-flow").each(function (idx, item) {
-                    flow.load(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //代码
-                $(".magicalcoder-code").each(function (idx, item) {
-                    layui.code(_t.iteratorAttr({
-                        elem: $(item)}, item));
-                })
-                //弹窗
-                $(".magicalcoder-layer").each(function (idx, item) {
-                    //先隐藏起来
-                    $(this).next().hide();
-                    $(this).click(function () {
-                        var config = _t.iteratorAttr({
-                            elem: $(item)}, item);
-                        var type = config.type;
-                        if (type + '' == 1) {
-                            config.content = $(this).next();
-                            if (!config.content.hasClass("magicalcoder-layer-content")) {
-                                config.content = config.content.find(".magicalcoder-layer-content")
-                            }
-                        }
-                        if (config.btn) {
-                            config.btn = config.btn.split(",")
-                        }
-                        if (config.area) {
-                            config.area = config.area.split(",")
-                        }
-                        layer.open(config)
-                    })
-                })
-                //动态表格 我们单独封装了layui-table的初始化方式 至于数据排序 返回格式 等操作请根据你的具体环境自行封装
-                $(".magicalcoder-table").each(function (idx,
-                    item) {
-                    var cols = [];
-                    //读取列配置
-                    $(this).find(".magicalcoder-table-th").each(function (i, th) {
-                        cols.push(_t.iteratorAttr({
-                            title: $(this).text()}, th));
-                    })
-                    var tableConfig = _t.iteratorAttr({
-                        elem: $(item),
-                        cols: [cols]},
-                        item);
-                    //初始化表格 至于返回的数据格式 您可以根据自己的系统自行改造 这里仅做一个示例 参考js\\data\\list.json
-                    table.render(tableConfig);
-                })
-                //部分组件初始化
-                element.init();
-                //表单初始化
-                form.render();
-            },
-            //将标签上的属性 转换成layui函数初始化时的参数名:参数值
-            iteratorAttr: function (renderConfig, dom) {
-                var attrs = dom.attributes;
-                for (var i = 0; i < attrs.length; i++) {
-                    var attr = attrs[i];
-                    var name = attr.name;
-                    var value = attr.value;
-                    if (name.indexOf("mc-") === 0) {
-                        name = name.replace("mc-attr-", '');
-                        name = name.replace("mc-event-", '');
-                        if (name.indexOf('str-') === 0) {
-                            name = name.replace('str-', '');
-                        } else if (name.indexOf('bool-') === 0) {
-                            name = name.replace('bool-', '');
-                            value == 'true' || value === '' ? value = true: value = value;
-                            value == 'false' ? value = false: value = value;
-                        } else if (name.indexOf('num-') === 0) {
-                            name = name.replace('num-', '');
-                            if (value !== '' && !isNaN(value)) {
-                                value = parseFloat(value);
-                            }
-                        } else if (name.indexOf('json-') === 0) {
-                            name = name.replace('json-', '');
-                            if (value !== '') {
-                                value = JSON.parse(value);
-                            }
-                        }
-                        renderConfig[this.htmlAttrNameToTuoFeng(name)] = value;
-                    }
-                }
-                return renderConfig;
-            },
-            //user-name -> userName html上的标签名转换成驼峰名称
-            htmlAttrNameToTuoFeng: function (name) {
-                var arr = name.split("-");
-                var newArr = []
-                for (var i = 0; i < arr.length; i++) {
-                    if (i != 0) {
-                        if (arr[i] != '') {
-                            newArr.push(this.firstCharToUpLower(arr[i]));
-                        }
-                    } else {
-                        newArr.push(arr[i]);
-                    }
-                }
-                return newArr.join('');
-            },
-            //首字母大写
-            firstCharToUpLower: function (name) {
-                var arr = name.split("");
-                arr[0] = arr[0].toUpperCase();
-                return arr.join('');
-            },
-        }
-        magicalDragLayuiUtil.rebuildLayUiControls();
-        //echarts自动初始化
-        new McECharts().render();
+   <script>
+
+       layui.use(["table","jquery","layer","form"], function(){
+           var table = layui.table
+               ,$=layui.jquery
+               ,layer=layui.layer
+               ,form = layui.form;
+           /*下拉框*/
+           form.render();
+       });
+       /*日期*/
+       layui.use(['form','laydate'], function() {
+           var form = layui.form
+               ,laydate = layui.laydate;
+
+           //执行一个laydate实例
+           laydate.render({
+               elem : '#creationtime'
+               ,trigger: 'click'
+           });
+           laydate.render({
+               elem : '#fbirth'
+               ,trigger: 'click'
+           });
+       });
+   </script>
+    <script type="text/javascript">
+        $(function(){
+            var username = '<%= session.getAttribute("Record")%>';
+        })
     </script>
+<script type="text/javascript">
+
+
+    function selects() {
+        layui.use('form',function () {
+            var form=layui.form;
+            form.render('select');
+        })
+    }
+
+    function unlselect() {
+        var fcertificate=$("#fcertificate").val();
+        $.ajax({
+            url:"../UltrasonicImageController/ultrasonicImageByrid",
+            type:"post",
+            data: {certificate:fcertificate},
+            dataType:"json",
+            success:function(result){
+
+                    /*用户名*/
+                    /*结果*/
+                    $("#select_result").val(result.result);
+                    /*详细*/
+                    $("#resultdescribe").val(result.resultdescribe);
+                    /*医生*/
+                    $("#username").val(result.sysUser.username);
+                    /*日期*/
+                    $("#inspectiontime").val(result.inspectiontime);
+                    $("#ulimg").attr("src", "../" + result.image);
+                    selects();
+
+            }
+        })
+    }
+</script>
 </body>
 </html>

@@ -1,28 +1,12 @@
 package com.csdj.controller.lx;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/GetControll")
 public class GetControll {
-    @Autowired
-    private testService service;
-
-    /**
-     * 测试
-     * @param model
-     * @return
-     */
-    @RequestMapping("/getlist")
-    public String getlist(Model model)
-    {
-        model.addAttribute("lists",service.gettest());
-        return "list";
-    }
-
     /**
      * 自定义发送短信页面页面
      * @return

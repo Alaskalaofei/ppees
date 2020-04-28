@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan({"com.csdj.mapper","com.csdj.mapper.lx"})
+@MapperScan({"com.csdj.mapper","com.csdj.mapper.lx","com.csdj.mapper.cx"})
 public class PpeesWebApplication {
 
     public static void main(String[] args) {

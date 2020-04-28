@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csdj.mapper.lx.RecordMapper">
+<!--查询-->
+    <select id="getRecordByRecord" resultType="Record">
+        SELECT * FROM `record`
+        <where>
+            <if test="creationtime!=null and creationtime!=''">
+                `creationtime`=#{creationtime}
+            </if>
+            <if test="fcertificate!=null and fcertificate!=''">
+                and `fcertificate`=#{fcertificate}
+            </if>
+            <if test="fname!=null and fname!=''">
+                and `fname` LIKE CONCAT('%',#{fname},'%')
+            </if>
+            <if test="bcertificate!=null and bcertificate!=''">
+                and `bcertificate`=#{bcertificate}
+            </if>
+            <if test="bname!=null and bname!=''">
+                AND `bname` LIKE CONCAT('%',#{bname},'%')
+            </if>
+            <if test="fbirth!=null and fbirth!=''">
+                and `fbirth`=#{fbirth}
+            </if>
+            <if test="birth!=null and birth!=''">
+                and `birth`=#{birth}
+            </if>
+            <if test="rid!=null and rid!=''">
+                and `rid`=#{rid}
+            </if>
+        </where>
+        LIMIT #{index},#{pageSize}
+
+    </select>
+    <!--查询总数-->
+    <select id="getRecordByRecordCount" resultType="Integer">
+        SELECT COUNT(*) FROM `record`
+        <where>
+        <if test="creationtime!=null and creationtime!=''">
+            `creationtime`=#{creationtime}
+        </if>
+        <if test="fcertificate!=null and fcertificate!=''">
+            and `fcertificate`=#{fcertificate}
+        </if>
+        <if test="fname!=null and fname!=''">
+            and `fname` LIKE CONCAT('%',#{fname},'%')
+        </if>
+        <if test="bcertificate!=null and bcertificate!=''">
+            and `bcertificate`=#{bcertificate}
+        </if>
+        <if test="bname!=null and bname!=''">
+            AND `bname` LIKE CONCAT('%',#{bname},'%')
+        </if>
+        <if test="fbirth!=null and fbirth!=''">
+            and `fbirth`=#{fbirth}
+        </if>
+        <if test="birth!=null and birth!=''">
+            and `birth`=#{birth}
+        </if>
+        <if test="rid!=null and rid!=''">
+            and `rid`=#{rid}
+        </if>
+        </where>
+    </select>
+
+
+    <select id="getRecordByRid" resultType="Record">
+        SELECT * FROM `record` where `rid`=#{rid}
+    </select>
+</mapper>

@@ -6,6 +6,10 @@ public class FollowUpVisit {
   private Integer id;
   private Integer rid;
   private String assessmentcontent;
+  /**
+   * 档案信息
+   */
+  private Record record;
 
   public Integer getId() {
     return id;
@@ -29,5 +33,13 @@ public class FollowUpVisit {
 
   public void setAssessmentcontent(String assessmentcontent) {
     this.assessmentcontent = assessmentcontent;
+  }
+
+  public Record getRecord() {
+    return record;
+  }
+
+  public void setRecord(Record record) {
+    this.record = record;
   }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csdj.mapper.lx.UltrasonicImageMapper">
+
+    <resultMap id="getUltrasonicImage" type="UltrasonicImage">
+        <id column="id" property="id"/>
+        <result column="image" property="image"/>
+        <result column="result" property="result"/>
+        <result column="sid" property="sid"/>
+        <result column="resultdescribe" property="resultdescribe"/>
+        <result column="inspectiontime" property="inspectiontime"/>
+        <result column="certificate" property="certificate"/>
+        <!--一对一-->
+        <association property="sysUser" javaType="SysUser">
+            <result column="username" property="username"/>
+        </association>
+    </resultMap>
+
+    <!--按rid查询b超信息-->
+    <select id="getUltrasonicImageByridBycertificate" resultMap="getUltrasonicImage" parameterType="String">
+        SELECT u.*,s.`username` FROM `ultrasonic_image` u,`sys_user` s WHERE u.`sid`=s.`id` and `certificate`=#{certificate}
+    </select>
+    <!--&lt;!&ndash;修改B超信息&ndash;&gt;
+    <update id="updateVaccineTypeb">
+        UPDATE `ultrasonic_image`
+        <set>
+          <if test=""></if>
+        </set>
+          `result`=#{}`result_describe`=#{} WHERE `rid`=#{}
+    </update>-->
+</mapper>
