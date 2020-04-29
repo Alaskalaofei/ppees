@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,25 @@ import java.util.Map;
 public class SysUserController {
     @Autowired
     private SysUserService service;
+
+    @RequestMapping("/login")
+    public String login(SysUser sysUser, HttpSession session) {
+        /*从数据库取得判断数据*/
+        SysUser user=service.findgetsysuserlogin(sysUser.getUsername());
+        if(user==null)
+        {
+            /*用户不存在*/
+            return "not null";
+        }else if(user.getPassword().equals(sysUser.getPassword()))
+        {
+            user.setPassword(null);
+            session.setAttribute("usersession",user);
+            /*登录成功*/
+            return "yes login";
+        }
+        /*登陆失败*/
+        return "no login";
+    }
 
     @RequestMapping("/userlist")
     @ResponseBody

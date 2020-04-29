@@ -6,6 +6,12 @@ import java.util.List;
 
 public interface SysUserService {
     /**
+     * 登录
+     * @param userName
+     * @return
+     */
+    SysUser findgetsysuserlogin(String userName);
+    /**
      * 查询所有用户(用户编号,用户姓名)
      * @return
      */

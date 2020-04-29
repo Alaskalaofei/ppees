@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface SysUserMapper {
     /**
+     * 登录
+     * @param userName
+     * @return
+     */
+    SysUser getsysuserlogin(String userName);
+    /**
      * 查询所有用户(用户编号,用户姓名)
      * @return
      */

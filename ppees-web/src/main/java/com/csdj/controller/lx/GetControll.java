@@ -7,6 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/GetControll")
 public class GetControll {
+
+    /**
+     * 自定义发送短信页面页面
+     * @return
+     * */
+    @RequestMapping("getlogin")
+    public String getlogin()
+    {
+        return "login";
+    }
+
+
     /**
      * 自定义发送短信页面页面
      * @return

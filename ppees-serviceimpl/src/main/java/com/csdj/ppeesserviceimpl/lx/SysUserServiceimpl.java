@@ -15,6 +15,11 @@ public class SysUserServiceimpl implements SysUserService {
     private SysUserMapper mapper;
 
     @Override
+    public SysUser findgetsysuserlogin(String userName) {
+        return mapper.getsysuserlogin(userName);
+    }
+
+    @Override
     public List<SysUser> findgetuserlist(Integer index, Integer pageSize) {
         return mapper.getuserlist( (index-1)*pageSize, pageSize);
     }
