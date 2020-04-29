@@ -24,77 +24,74 @@
 
 	<body >
 		<div class="layui-container" style="width: 1100px;">
-			<form class="layui-form" action="" style="margin-top: 20px;">
+			<div class="layui-form" action="" style="margin-top: 20px;">
+				<form  class="layui-form" action="#" id="form" method="post" >
 				<div class="layui-col-md6">
 					<div class="layui-form-item">
 						<label class="layui-form-label">丈夫姓名  : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="名族" autocomplete="off" class="layui-input">
+							<input type="text" name="bname" required lay-verify="required" placeholder="丈夫姓名" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">名族 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="名族" autocomplete="off" class="layui-input">
+							<input type="text" name="bnation" required lay-verify="required" placeholder="名族" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">证件类型 : </label>
+						<div class="layui-input-block">
+							<select name="bdocumentid"  id="documentid" lay-verify="required">
+
+							</select>
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">证件号码 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="证件号码" autocomplete="off" class="layui-input">
+							<input type="text" name="bcertificate" required lay-verify="required" placeholder="证件号码" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">出生日期 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" id="test1" required lay-verify="required" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input">
+							<input type="text" name="birth" id="examineDate2" required lay-verify="required" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input">
 						</div>
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">年龄 : </label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="年龄" autocomplete="off" class="layui-input">
-						</div>
-					</div>
+
 					<div class="layui-form-item">
 						<label class="layui-form-label">文化程度 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">有</option>
-								<option value="0">没有</option>
+							<select name="beducation" id="beducation" lay-verify="deducation">
+
 							</select>
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">职业 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">有</option>
-								<option value="0">没有</option>
-							</select>
+							<input type="text" name="boccupation" required lay-verify="required" placeholder="职业" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">户口性质 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">在读</option>
-								<option value="0">没在读</option>
-							</select>
+							<input type="text" name="baccount" required lay-verify="required" placeholder="户口性质" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">手机号码 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
+							<input type="text" name="bphone" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">结婚日期 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" id="test1" required lay-verify="required" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input">
+							<input type="text" name="marriage" id="examineDate3" required lay-verify="required"  placeholder="结婚日期" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
@@ -104,66 +101,62 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">妻子姓名 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="妻子姓名" autocomplete="off" class="layui-input">
+							<input type="text" name="fname" required lay-verify="required" placeholder="妻子姓名" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">名族 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="名族" autocomplete="off" class="layui-input">
+							<input type="text" name="fnation" required lay-verify="required" placeholder="名族" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">证件类型 : </label>
+						<div class="layui-input-block">
+							<select name="fdocumentid" id="fdocumentid" lay-verify="required">
+
+							</select>
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">证件号码 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="证件号码" autocomplete="off" class="layui-input">
+							<input type="text" name="fcertificate" required lay-verify="required" placeholder="证件号码" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">出生日期 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" id="test1" required lay-verify="required" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input">
+							<input type="text" name="fbirth" id="examineDate4" required lay-verify="required" placeholder="出生日期" autocomplete="off" class="layui-input">
 						</div>
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">年龄 : </label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="年龄" autocomplete="off" class="layui-input">
-						</div>
-					</div>
+
 					<div class="layui-form-item">
 						<label class="layui-form-label">文化程度 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">有</option>
-								<option value="0">没有</option>
+							<select name="feducation" id="feducation" lay-verify="required">
+
 							</select>
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">职业 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">有</option>
-								<option value="0">没有</option>
-							</select>
+							<input type="text" name="foccupation" required lay-verify="required" placeholder="职业" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">户口性质 : </label>
 						<div class="layui-input-block">
-							<select name="city" lay-verify="required">
-								<option value="">在读</option>
-								<option value="0">没在读</option>
-							</select>
+							<input type="text" name="faccount" required lay-verify="required" placeholder="户口性质" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">手机号码 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
+							<input type="text" name="fphone" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
@@ -179,7 +172,7 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">丈夫户口所在地 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
+							<input type="text" name="bregistered" required lay-verify="required" placeholder="地址" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 		
@@ -193,7 +186,7 @@
 				<div class="layui-form-item">
 						<label class="layui-form-label">妻子户口所在地 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
+							<input type="text" name="fregistered" required lay-verify="required" placeholder="地址" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 		
@@ -207,7 +200,7 @@
 				<div class="layui-form-item">
 						<label class="layui-form-label">妻子户口所在地 : </label>
 						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required" placeholder="手机号码" autocomplete="off" class="layui-input">
+							<input type="text" name="present" required lay-verify="required" placeholder="地址" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 		
@@ -218,13 +211,13 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">邮箱  :  </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" required lay-verify="required" autocomplete="off" class="layui-input">
+							<input type="text" name="zipcode" required lay-verify="required" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 					<div class="layui-inline">
 						<label class="layui-form-label">座机号码 : </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							<input type="text" name="telephonenumber" lay-verify="required|phone" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 
@@ -233,9 +226,8 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">知情同意书 : </label>
 						<div class="layui-input-inline">
-							<select name="city" lay-verify="required">
-								<option value="">在读</option>
-								<option value="0">没在读</option>
+							<select name="informedconsent" id="Informedconsent" lay-verify="required">
+
 							</select>
 						</div>
 					</div>
@@ -246,13 +238,14 @@
 					<div class="layui-inline">
 						<label class="layui-form-label">医师签名 : </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							<select id="userRole"  name="examinedoctorid"  lay-filter="aihao">
+							</select>
 						</div>
 					</div>
 					<div class="layui-inline">
 						<label class="layui-form-label">填写日期 : </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							<input type="text" name="creationtime" id="examineDate1" lay-verify="required|phone" autocomplete="off" class="layui-input laydate">
 						</div>
 					</div>
 
@@ -260,7 +253,7 @@
 				<div class="layui-form-item" style="align-content: center;margin-left: 200px;">
 					<div class="layui-inline">
 						<div class="layui-input-inline">
-							<button class="layui-btn  layui-btn-sm"> 保 存 </button>
+							<button type="button" class="layui-btn  layui-btn-sm" id="sub" lay-filter="demo1">立即提交</button>
 						</div>
 					</div>
 					<div class="layui-inline">
@@ -272,14 +265,129 @@
 					</div>
 				</div>
 				
-				<form/>
+
+				</form>
+		</div>
 		</div>
 	</body>
 	<script src="/layui/layui.js "></script>
 	<script type="text/javascript ">
-		layui.use(['layer', 'form'], function() {
+		layui.use(['form','layer','layedit', 'table', 'jquery', 'laydate'], function() {
+			var form = layui.form;
 			var layer = layui.layer,
-				form = layui.form;
+					layedit = layui.layedit,
+					table = layui.table,
+					$ = layui.jquery;
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '#examineDate4'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			laydate.render({
+				elem: '#examineDate2'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			laydate.render({
+				elem: '#examineDate3'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			laydate.render({
+				elem: '#examineDate1'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			$("#userRole").load("findRole",function(result){
+				var role=eval("("+result+")");
+				$("#userRole").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#userRole").append("<option value="+this.id+">"+this.username+"</option>")
+				})
+				form.render('select');
+			});
+
+			$("#documentid").load("findDocument",function(result){
+				var role=eval("("+result+")");
+				$("#documentid").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#documentid").append("<option value="+this.id+">"+this.name+"</option>")
+				})
+				form.render('select');
+			});
+
+			$("#fdocumentid").load("findDocument",function(result){
+				var role=eval("("+result+")");
+				$("#fdocumentid").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#fdocumentid").append("<option value="+this.id+">"+this.name+"</option>")
+				})
+				form.render('select');
+			});
+
+
+
+
+			$("#beducation").load("findDucation",function(result){
+				var role=eval("("+result+")");
+				$("#beducation").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#beducation").append("<option value="+this.id+">"+this.name+"</option>")
+				})
+				form.render('select');
+			});
+
+			$("#feducation").load("findDucation",function(result){
+				var role=eval("("+result+")");
+				$("#feducation").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#feducation").append("<option value="+this.id+">"+this.name+"</option>")
+				})
+				form.render('select');
+			});
+
+
+
+
+
+
+
+			$("#Informedconsent").load("findConsent",function(result){
+				var role=eval("("+result+")");
+				$("#Informedconsent").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#Informedconsent").append("<option value="+this.cid+">"+this.cname+"</option>")
+				})
+				form.render('select');
+			});
+
+			$("#sub").click(function(){
+				$.ajax({
+					url : "/cxRecord/addRecordA",
+					data :$("#form").serialize(),
+					type : "post",
+					dataType : "text",
+					success : function(result) {
+						layer.msg("新增成功");
+						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+						parent.layer.close(index);
+					}
+				})
+			})
+
 		});
 	</script>
 

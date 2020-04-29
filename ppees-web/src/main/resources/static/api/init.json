@@ -16,26 +16,73 @@
       "target": "_self",
       "child": [
         {
-          "title": "主页模板",
+          "title": "档案信息",
           "href": "",
           "icon": "fa fa-home",
           "target": "_self",
           "child": [
             {
-              "title": "主页一",
+              "title": "档案查询",
               "href": "cxRecord/getRecord",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
+
             {
-              "title": "主页二",
+              "title": "新增档案",
+              "href": "cxRecord/addRecord",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "男性信息",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "男性体格检查",
               "href": "cxRecord/getnanHealth",
               "icon": "fa fa-tachometer",
               "target": "_self"
             },
             {
-              "title": "主页三",
-              "href": "page/welcome-3.html",
+              "title": "男性一般情况",
+              "href": "cxRecord/getnanGeneral",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },{
+          "title": "女性信息",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "女性体格检查",
+              "href": "cxRecord/getnvHealth",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "女性一般情况",
+              "href": "cxRecord/getnvGeneral",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },{
+          "title": "信息显示",
+          "href": "",
+          "icon": "",
+          "target": "",
+          "child": [
+            {
+              "title": "信息查询",
+              "href": "cxRecord/pageFR",
               "icon": "fa fa-tachometer",
               "target": "_self"
             }

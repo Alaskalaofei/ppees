@@ -24,6 +24,23 @@ public interface RecordService {
 
     List<SysUser> selectAllSysUser();
 
+    List<Consent> selectAllconsent();
 
+    List<EducationLevel>  selectAlleducation();
 
+    List<DocumentType> selectAlldocument();
+    Integer addRecord(Record record);
+    Integer addGGeneral(GGeneral gGeneral);
+    List<VaccineTypeb> selectAllVaccineTypeb();
+    List<DiseaseType> selectDiseaseType();
+
+    List<DiseaseType> selectDiseaseTypenv();
+
+    List<DiseaseType> selectDiseaseTypeA();
+
+    List<IntelligenceTypeb> selectIntelligenceTypeb();
+    Integer addIntelligence(Intelligence intelligence);
+    List<Record> selectF(String fname,String fphone, Integer curPageNo, Integer pageSize);
+
+    int getCount(String fname,String fphone);
 }

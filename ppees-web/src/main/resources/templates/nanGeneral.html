@@ -23,38 +23,38 @@
 	<body>
 
 		<div class="layui-container" style="width: 1100px;">
-			
-				<form class="layui-form" action="" style="margin-top: 20px;">
-				<div class="layui-col-md6">
-					<div class="layui-form-item">
-						<label class="layui-form-label" style="margin-left: -50px;">系统编号</label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
-						</div>
+			<div class="layui-col-md6">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">系统编号</label>
+					<div class="layui-input-block">
+						<input type="text" name="rid" th:value='${session.Record.rid}' required lay-verify="required" autocomplete="off" class="layui-input">
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label" style="margin-left: -50px;">性别</label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
-						</div>
-					</div>
-					
 				</div>
-				<div class="layui-col-md6">
-					<div class="layui-form-item">
-						<label class="layui-form-label" style="margin-left: -50px;">姓名</label>
-						<div class="layui-input-block">
-							<input type="text" name="title" required lay-verify="required"  autocomplete="off" class="layui-input">
-						</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">性别</label>
+					<div class="layui-input-block">
+						<input type="text" name="title" value="男" required lay-verify="required" autocomplete="off" class="layui-input">
 					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label" style="margin-left: -50px;">出生日期</label>
-						<div class="layui-input-block">
-							<input type="text" name="title" id="test1" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
-						</div>
-					</div>
-					
 				</div>
+
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">姓名</label>
+					<div class="layui-input-block">
+						<input type="text" name="bname"   th:value='${session.Record.bname}' required lay-verify="required" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">出生日期</label>
+					<div class="layui-input-block">
+						<input type="text" name="birth" th:value="${#dates.format(session.Record.birth,'yyyy-MM-dd')}" required lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+			</div>
+				<form class="layui-form"  id="form" method="post" action="" style="margin-top: 20px;">
+
 
 								<div class="layui-form-item">
 					<p>
@@ -63,20 +63,17 @@
 						</fieldset>
 					</p>
 					<div class="layui-input-block">
-						<input type="radio" name="sex" value="是" title="是" >
-						<input type="radio" name="sex" value="否" title="否">
+							<span id="anydiseaseyes">
+							<input type="radio" name="anydisease" value="1"  title="是" >
+						</span>
+						<span id="anydiseaseno">
+							<input type="radio" name="anydisease" value="0"  title="否">
+						</span>
 						
 					<div class="layui-form-item">
-						<div class="layui-input-block">
-							<input type="checkbox" name="like1[write]" lay-skin="primary" title="贫血">
-							<input type="checkbox" name="like1[read]" lay-skin="primary" title="高血压">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="心脏病">
-							<input type="checkbox" name="like1[read]" lay-skin="primary" title="糖尿病">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="甲酰胺">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="肿瘤">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="结核">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="其他">
-						</div>
+						<span class="layui-input-block" th:each="aa:${session.Alist}">
+							<input type="checkbox"  class="nameAA"  name="name" lay-skin="primary" th:title="${aa.name}" >
+						</span>
 					</div>
 					</div>
 				</div>
@@ -89,8 +86,8 @@
 						</fieldset>
 					</p>
 					<div class="layui-input-block">
-						<input type="radio" name="sex1" value="无" title="无">
-						<input type="radio" name="sex1" value="有注明具体病例" title="有注明具体病例">
+						<input type="radio" name="birthdefects" value="0" title="无">
+						<input type="radio" name="birthdefects" value="1" title="有注明具体病例">
 					</div>
 				</div>
 
@@ -101,16 +98,17 @@
 						</fieldset>
 					</p>
 						<div class="layui-input-block">
-							<input type="radio" name="sex2" value="是" title="是">
-							<input type="radio" name="sex2" value="否" title="否">
+								<span id="isdiseaseyes">
+							<input type="radio" name="isdisease" value="1" title="是">
+						</span>
+							<span id="isdiseaseno">
+							<input type="radio" name="isdisease" value="0" title="否">
+						</span>
+
 							<div class="layui-form-item">
-							<div class="layui-input-block">
-								<input type="checkbox" name="like1[game]" lay-skin="primary" title="睾丸炎,附睾炎">
-								<input type="checkbox" name="like1[game]" lay-skin="primary" title="精索静脉曲张">
-								<input type="checkbox" name="like1[game]" lay-skin="primary" title="不育症">
-								<input type="checkbox" name="like1[game]" lay-skin="primary" title="腮腺炎">
-								<input type="checkbox" name="like1[game]" lay-skin="primary" title="其他">
-							</div>
+							<span class="layui-input-block" th:each="aa:${session.dlist}">
+							<input type="checkbox"  class="nameA" name="name" lay-skin="primary" th:title="${aa.name}" >
+						</span>
 						</div>
 						</div>
 						
@@ -123,8 +121,8 @@
 						</fieldset>
 					</p>
 					<div class="layui-input-block">
-						<input type="radio" name="sex3" value="无" title="无" >
-						<input type="radio" name="sex3" value="是服药名称" title="是服药名称">
+						<input type="radio" name="atpresent" value="0" title="无" >
+						<input type="radio" name="atpresent" value="1" title="是服药名称">
 					</div>
 				</div>
 
@@ -136,14 +134,16 @@
 						</fieldset>
 					</p>
 					<div class="layui-input-block">
-						<input type="radio" name="sex4" value="是." title="是." >
-						<input type="radio" name="sex4" value="否." title="否.">
+<span id="whetherHereditaryDiseaseWU">
+						<input type="radio" name="vaccinationornot" value="1" title="是" >
+							</span>
+						<span id="whetherHereditaryDiseaseYOU">
+						<input type="radio" name="vaccinationornot" value="0" title="否">
+					</span>
 						<div class="layui-form-item">
-						<div class="layui-input-block">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="风疹疫苗">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="乙肝疫苗">
-							<input type="checkbox" name="like1[game]" lay-skin="primary" title="其他">
-						</div>
+							<span class="layui-input-block"  th:each="aa:${session.Vlist}">
+								<input type="checkbox"  class="hereditaryDiseaseName" name="name" th:title="${aa.name}" lay-skin="primary" >
+							</span>
 					</div>
 					</div>
 
@@ -156,22 +156,23 @@
 				<br />
 				<div class="layui-form-item">
 					<div class="layui-inline">
-						<label class="layui-form-label">医师签名: : </label>
+						<label class="layui-form-label">医师签名 : </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" lay-verify="required|phone" autocomplete="off" class="layui-input">
+							<select id="userRole"  name="examinedoctorid"  lay-filter="aihao">
+							</select>
 						</div>
 					</div>
 					<div class="layui-inline">
 						<label class="layui-form-label">检查时间 : </label>
 						<div class="layui-input-inline">
-							<input type="text" name="title" id="test2" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+							<input type="text" name="inspectiontime" id="test2" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
 						</div>
 					</div>
 				</div>
 				<div class="layui-form-item" style="align-content: center;margin-left: 200px;">
 					<div class="layui-inline">
 						<div class="layui-input-inline">
-							<button class="layui-btn  layui-btn-sm"> 保 存 </button>
+							<button type="button" class="layui-btn  layui-btn-sm" id="sub" lay-filter="demo1">立即提交</button>
 						</div>
 					</div>
 					<div class="layui-inline">
@@ -190,36 +191,81 @@
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
 	<script src="/layui/layui.js "></script>
 	<script type="text/javascript ">
-		layui.use(['layer', 'form', 'laydate'], function() {
+		layui.use(['form','layer','layedit', 'table', 'jquery', 'laydate'], function() {
+			var form = layui.form;
 			var layer = layui.layer,
-				form = layui.form;
+					layedit = layui.layedit,
+					table = layui.table,
+					$ = layui.jquery;
 			var laydate = layui.laydate;
-
-			//执行一个laydate实例
-			laydate.render({
-				elem: '#test1'
-				//指定元素
-				
-			});
 			laydate.render({
 				elem: '#test2'
 				//指定元素
-				
 			});
-			
-			form.on('radio', function(data) {
-				if(data.value == '是' ) {
-					$('.layui-form-item').find('.layui-input-block').find('input').prop('disabled', true);
-				} else if(data.value == '否' ) {
-
-					$('.layui-form-item').find('.layui-input-block').find('input').prop('disabled', false);
-				}
-
+			$("#userRole").load("findRole",function(result){
+				var role=eval("("+result+")");
+				$("#userRole").append("<option value='请选择'>请选择</option>")
+				$(role).each(function(){
+					$("#userRole").append("<option value="+this.id+">"+this.username+"</option>")
+				})
+				form.render('select');
+			});
+			$("#sub").click(function(){
+				$.ajax({
+					url : "/cxRecord/addGGeneral",
+					data :$("#form").serialize(),
+					type : "post",
+					dataType : "text",
+					success : function(result) {
+						layer.msg("新增成功");
+						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+						parent.layer.close(index);
+					}
+				})
+			});
+			//点击无禁用遗传疾病输入
+			$("#whetherHereditaryDiseaseYOU").click(function () {
+				$(".hereditaryDiseaseName").addClass("layui-disabled");
+				$(".hereditaryDiseaseName").prop('disabled', true);
+				$(".hereditaryDiseaseName").val("");
+				form.render();
+			});
+			//点击有解除禁用遗传疾病输入
+			$("#whetherHereditaryDiseaseWU").click(function () {
+				$(".hereditaryDiseaseName").removeClass("layui-disabled")
+				$(".hereditaryDiseaseName").prop('disabled', false);
+				form.render();
 			});
 
-			
-			
-		});
+
+			//点击无禁用遗传疾病输入
+			$("#anydiseaseno").click(function () {
+				$(".nameAA").addClass("layui-disabled");
+				$(".nameAA").prop('disabled', true);
+				$(".nameAA").val("");
+				form.render();
+			});
+			//点击有解除禁用遗传疾病输入
+			$("#anydiseaseyes").click(function () {
+				$(".nameAA").removeClass("layui-disabled")
+				$(".nameAA").prop('disabled', false);
+				form.render();
+			});
+
+			//点击无禁用遗传疾病输入
+			$("#isdiseaseno").click(function () {
+				$(".nameA").addClass("layui-disabled");
+				$(".nameA").prop('disabled', true);
+				$(".nameA").val("");
+				form.render();
+			});
+			//点击有解除禁用遗传疾病输入
+			$("#isdiseaseyes").click(function () {
+				$(".nameA").removeClass("layui-disabled")
+				$(".nameA").prop('disabled', false);
+				form.render();
+			});
+	});
 	</script>
 
 </html>

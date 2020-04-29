@@ -3,9 +3,9 @@ package com.csdj.pojo;
 
 public class Intelligence {
 
-  private Integer id;
-  private String certificate;
-  private Integer intelligencetype;
+  private  Integer id;
+  private  String certificate;
+  private  Integer Intelligencetype;
 
   public Integer getId() {
     return id;
@@ -24,10 +24,10 @@ public class Intelligence {
   }
 
   public Integer getIntelligencetype() {
-    return intelligencetype;
+    return Intelligencetype;
   }
 
   public void setIntelligencetype(Integer intelligencetype) {
-    this.intelligencetype = intelligencetype;
+    Intelligencetype = intelligencetype;
   }
 }

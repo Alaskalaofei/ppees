@@ -11,6 +11,8 @@ public class FollowUpVisit {
    */
   private Record record;
 
+
+
   public Integer getId() {
     return id;
   }

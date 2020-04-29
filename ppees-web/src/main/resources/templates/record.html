@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" />
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <style type="text/css">
+        input{
+            width: 200px;
+            height: 36px;
+            text-align: center;
+        }
+        button{
+            width: 100px;
+        }
+
+    </style>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+
+<body>
+
+<form class="layui-form layui-form-pane" action="" style="margin-top: 10px;">
+    <div class="layuimini-container">
+        <fieldset class="table-search-fieldset">
+
+
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">姓名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="fname" id="fname" required lay-verify="required" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label">手机号码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="fphone" id="fphone" required lay-verify="required" autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button type="button" class="layui-btn layui-btn-norma" id="btn">查询</button>
+            <button type="reset"  class="layui-btn layui-btn-normal">清空</button>
+            <table id="demo" lay-filter="test"></table>
+        </fieldset>
+    </div>
+</form>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+
+</script>
+</body>
+
+
+<script src="/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+<script>
+    layui.use(['form','layer','layedit', 'table', 'jquery', 'laydate'], function() {
+        var form = layui.form;
+        var layer = layui.layer,
+            layedit = layui.layedit,
+            table = layui.table,
+            $ = layui.jquery;
+        var laydate = layui.laydate;
+        table.render({
+            elem: '#demo',
+            height: 450,
+            url: 'pageF' //数据接口
+            ,
+            toolbar: '#toolbarDemo', //开启头部工具栏，并为其绑定左侧模板
+            page: true //开启分页
+            ,
+            cols: [
+                [
+                    {type: 'checkbox', fixed: 'left'},
+                    { field: 'rid', title: '编号', width: 150},
+                    { field: 'fname', title: '姓名', width: 150 },
+                    { field: 'fphone', title: '手机号码', width: 150 },
+                    { field: 'assessmentcontent', title: '短信内容', width: 150 }
+
+                ]
+            ],
+            limit: 7,
+            limits: [3, 5, 7],
+            defaultToolbar: ['filter'],
+            id: 'demoRecord',
+
+        })
+        $("#btn").click(function() {
+
+
+
+            var fname = $("#fname").val();
+            var fphone = $("#fphone").val();
+            table.reload('demoRecord', {
+                where : {
+                    fname : fname,
+                    fphone : fphone
+                } ,
+                page : {
+                    curr : 1
+                    //重新从第 1 页开始
+                }
+            });
+
+        })
+
+
+
+    });
+</script>
+
+</body>
+
+</html>

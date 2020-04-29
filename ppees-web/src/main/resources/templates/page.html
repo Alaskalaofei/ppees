@@ -114,13 +114,35 @@
 				$ = layui.jquery;
 		var laydate = layui.laydate;
 		laydate.render({
-			elem: '.test3'
+			elem: '#fbirth'
 			//指定元素
+			,format:'yyyy-MM-dd'
+			,type:'date'
+			,trigger: 'click'
 
 		});
 		laydate.render({
-			elem: '.test4'
+			elem: '#birth'
 			//指定元素
+			,format:'yyyy-MM-dd'
+			,type:'date'
+			,trigger: 'click'
+
+		});
+		laydate.render({
+			elem: '#creationtime1'
+			//指定元素
+			,format:'yyyy-MM-dd'
+			,type:'date'
+			,trigger: 'click'
+
+		});
+		laydate.render({
+			elem: '#creationtime2'
+			//指定元素
+			,format:'yyyy-MM-dd'
+			,type:'date'
+			,trigger: 'click'
 
 		});
 		table.render({

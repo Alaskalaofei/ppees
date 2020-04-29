@@ -1,23 +1,23 @@
 package com.csdj.pojo;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 public class Record {
-
   private Integer rid;
   private String bname;
   private String fname;
   private String bcertificate;
   private String fcertificate;
-  @JsonFormat(pattern = "yyyy-MM-dd")
   @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @JSONField(format = "yyyy-MM-dd")
   private Date birth;
-  @JsonFormat(pattern = "yyyy-MM-dd")
   @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @JSONField(format = "yyyy-MM-dd")
   private Date fbirth;
   private String boccupation;
   private String foccupation;
@@ -33,7 +33,7 @@ public class Record {
   private String faccount;
   private String bphone;
   private String fphone;
-  @JsonFormat(pattern = "yyyy-MM-dd")
+  @JSONField(format = "yyyy-MM-dd")
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date marriage;
   private String bregistered;
@@ -42,35 +42,21 @@ public class Record {
   private String zipcode;
   private Integer telephonenumber;
   private Integer informedconsent;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date creationtime;
-    private String mheadportrait;
-    private  String fheadportrait;
-    private  Integer Consanguinity;
+  @JSONField(format = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date creationtime;
+  private String mheadportrait;
+  private String fheadportrait;
+  private Integer consanguinity;
+  private SysUser sysUser;
+  private String assessmentcontent;
 
-  public String getMheadportrait() {
-    return mheadportrait;
+  public String getAssessmentcontent() {
+    return assessmentcontent;
   }
 
-  public void setMheadportrait(String mheadportrait) {
-    this.mheadportrait = mheadportrait;
-  }
-
-  public String getFheadportrait() {
-    return fheadportrait;
-  }
-
-  public void setFheadportrait(String fheadportrait) {
-    this.fheadportrait = fheadportrait;
-  }
-
-  public Integer getConsanguinity() {
-    return Consanguinity;
-  }
-
-  public void setConsanguinity(Integer consanguinity) {
-    Consanguinity = consanguinity;
+  public void setAssessmentcontent(String assessmentcontent) {
+    this.assessmentcontent = assessmentcontent;
   }
 
   public Integer getRid() {
@@ -303,5 +289,37 @@ public class Record {
 
   public void setCreationtime(Date creationtime) {
     this.creationtime = creationtime;
+  }
+
+  public String getMheadportrait() {
+    return mheadportrait;
+  }
+
+  public void setMheadportrait(String mheadportrait) {
+    this.mheadportrait = mheadportrait;
+  }
+
+  public String getFheadportrait() {
+    return fheadportrait;
+  }
+
+  public void setFheadportrait(String fheadportrait) {
+    this.fheadportrait = fheadportrait;
+  }
+
+  public Integer getConsanguinity() {
+    return consanguinity;
+  }
+
+  public void setConsanguinity(Integer consanguinity) {
+    this.consanguinity = consanguinity;
+  }
+
+  public SysUser getSysUser() {
+    return sysUser;
+  }
+
+  public void setSysUser(SysUser sysUser) {
+    this.sysUser = sysUser;
   }
 }

@@ -1,20 +1,34 @@
 package com.csdj.pojo;
 
 
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class GGeneral {
 
   private Integer id;
   private Integer anydisease;
-  private Integer aidid;
   private Integer birthdefects;
-  private String birthdefectscontent;
   private Integer isdisease;
-  private Integer isdiseaseid;
   private Integer atpresent;
-  private String drugname;
-  private Integer vaccinationor_not;
-  private Integer vaccinationor_notId;
-  private Integer eid;
+  private Integer vaccinationornot;
+  private Integer examinedoctorid;
+  @JSONField(format = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date inspectiontime;
+  private String certificate;
+
+  private String username;
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
   public Integer getId() {
     return id;
@@ -32,28 +46,12 @@ public class GGeneral {
     this.anydisease = anydisease;
   }
 
-  public Integer getAidid() {
-    return aidid;
-  }
-
-  public void setAidid(Integer aidid) {
-    this.aidid = aidid;
-  }
-
   public Integer getBirthdefects() {
     return birthdefects;
   }
 
   public void setBirthdefects(Integer birthdefects) {
     this.birthdefects = birthdefects;
-  }
-
-  public String getBirthdefectscontent() {
-    return birthdefectscontent;
-  }
-
-  public void setBirthdefectscontent(String birthdefectscontent) {
-    this.birthdefectscontent = birthdefectscontent;
   }
 
   public Integer getIsdisease() {
@@ -64,14 +62,6 @@ public class GGeneral {
     this.isdisease = isdisease;
   }
 
-  public Integer getIsdiseaseid() {
-    return isdiseaseid;
-  }
-
-  public void setIsdiseaseid(Integer isdiseaseid) {
-    this.isdiseaseid = isdiseaseid;
-  }
-
   public Integer getAtpresent() {
     return atpresent;
   }
@@ -80,35 +70,35 @@ public class GGeneral {
     this.atpresent = atpresent;
   }
 
-  public String getDrugname() {
-    return drugname;
+  public Integer getVaccinationornot() {
+    return vaccinationornot;
   }
 
-  public void setDrugname(String drugname) {
-    this.drugname = drugname;
+  public void setVaccinationornot(Integer vaccinationornot) {
+    this.vaccinationornot = vaccinationornot;
   }
 
-  public Integer getVaccinationor_not() {
-    return vaccinationor_not;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void setVaccinationor_not(Integer vaccinationor_not) {
-    this.vaccinationor_not = vaccinationor_not;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
   }
 
-  public Integer getVaccinationor_notId() {
-    return vaccinationor_notId;
+  public Date getInspectiontime() {
+    return inspectiontime;
   }
 
-  public void setVaccinationor_notId(Integer vaccinationor_notId) {
-    this.vaccinationor_notId = vaccinationor_notId;
+  public void setInspectiontime(Date inspectiontime) {
+    this.inspectiontime = inspectiontime;
   }
 
-  public Integer getEid() {
-    return eid;
+  public String getCertificate() {
+    return certificate;
   }
 
-  public void setEid(Integer eid) {
-    this.eid = eid;
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
   }
 }

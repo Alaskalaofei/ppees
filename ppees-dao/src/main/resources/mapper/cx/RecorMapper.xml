@@ -73,5 +73,69 @@
 value(#{height},#{weight},#{heartrate},#{bodymassindex},#{systolicpressure},#{diastolicpressure},#{stateabnormality},#{Intelligence},#{Facialfeatures},#{Specialposture},#{Specialfacecondition},#{skinandhair},#{Thyroidcondition},#{examinedoctorid},#{examinedate},#{certificate})
     </insert>
 
+    <select id="selectAllconsent" resultType="Consent">
+        SELECT * FROM consent
+    </select>
 
+    <select id="selectAlleducation" resultType="EducationLevel">
+        select *from education_level
+    </select>
+
+    <select id="selectAlldocument" resultType="DocumentType">
+        SELECT *FROM `document_type`
+    </select>
+
+    
+    <insert id="addRecord" parameterType="Record">
+        INSERT INTO `record`(`bname`,`fname`,`bcertificate`,`fcertificate`,`birth`,`fbirth`,`boccupation`,`foccupation`,`bnation`,`fnation`,`bdocumentid`,`fdocumentid`,`beducation`,`feducation`,`baccount`,`faccount`,`bphone`,`fphone`,`marriage`,`bregistered`,`fregistered`,`present`,`zipcode`,`telephonenumber`,`informedconsent`,`creationtime`,`mheadportrait`,`fheadportrait`,`consanguinity`)
+        value(#{bname},#{fname},#{bcertificate},#{fcertificate},#{birth},#{fbirth},#{boccupation},#{foccupation},#{bnation},#{fnation},#{bdocumentid},#{fdocumentid},#{beducation},#{feducation},#{baccount},#{faccount},#{bphone},#{fphone},#{marriage},#{bregistered},#{fregistered},#{present},#{zipcode},#{telephonenumber},#{informedconsent},#{creationtime},#{mheadportrait},#{fheadportrait},#{consanguinity})
+    </insert>
+
+    <insert id="addGGeneral" parameterType="GGeneral">
+       INSERT INTO `g_general`(`anydisease`,`birthdefects`,`isdisease`,`atpresent`,`vaccinationornot`,`examinedoctorid`,`inspectiontime`,`certificate`)
+       VALUE(#{anydisease},#{birthdefects},#{isdisease},#{atpresent},#{vaccinationornot},#{examinedoctorid},#{inspectiontime},#{certificate})
+     </insert>
+
+    <select id="selectAllVaccineTypeb" resultType="VaccineTypeb">
+        SELECT * FROM `vaccine_typeb`
+    </select>
+
+    <select id="selectDiseaseType" resultType="DiseaseType">
+        SELECT *FROM `disease_type` WHERE `type`=1
+    </select>
+    <select id="selectDiseaseTypenv" resultType="DiseaseType">
+        SELECT *FROM `disease_type` WHERE `type`=2
+    </select>
+
+   <select id="selectDiseaseTypeA" resultType="DiseaseType">
+        SELECT *FROM `disease_type` WHERE `type`=0
+    </select>
+    <select id="selectIntelligenceTypeb" resultType="IntelligenceTypeb">
+       SELECT  * FROM `intelligence_typeb`
+    </select>
+    <insert id="addIntelligence" parameterType="Intelligence">
+        INSERT INTO `intelligence`(`certificate`,`Intelligencetype`) VALUE(#{certificate},#{Intelligencetype})
+    </insert>
+
+    <select id="selectF" resultType="Record">
+        select r.`fname`,r.`fphone`,r.`rid`,f.`assessmentcontent` from `follow_up_visit` f,`record` r where r.`rid`=f.`rid`
+        <if test="fname!='' and fname!=null">
+            and r.fname like concat('%',#{fname},'%')
+        </if>
+        <if test="fphone!='' and fphone!=null">
+            and r.fphone like concat('%',#{fphone},'%')
+        </if>
+        LIMIT #{curPageNo},#{pageSize}
+    </select>
+
+
+    <select id="getCount" resultType="int">
+       select count(*)  from `follow_up_visit` f,`record` r where r.`rid`=f.`rid`
+        <if test="fname!='' and fname!=null">
+            and r.fname like concat('%',#{fname},'%')
+        </if>
+        <if test="fphone!='' and fphone!=null">
+            and r.fphone like concat('%',#{fphone},'%')
+        </if>
+    </select>
 </mapper>

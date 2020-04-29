@@ -21,5 +21,29 @@ public interface RecorMapper {
 
     List<SysUser> selectAllSysUser();
 
+    List<Consent> selectAllconsent();
+
+    List<EducationLevel>  selectAlleducation();
+
+    List<DocumentType> selectAlldocument();
+    Integer addRecord(Record record);
+
+    Integer addGGeneral(GGeneral gGeneral);
+
+    List<VaccineTypeb> selectAllVaccineTypeb();
+
+    List<DiseaseType> selectDiseaseType();
+
+    List<DiseaseType> selectDiseaseTypenv();
+
+    List<DiseaseType> selectDiseaseTypeA();
+
+    List<IntelligenceTypeb> selectIntelligenceTypeb();
+
+    Integer addIntelligence(Intelligence intelligence);
+
+    List<Record> selectF(@Param("fname") String fname,@Param("fphone") String fphone,@Param("curPageNo")Integer curPageNo, @Param("pageSize")Integer pageSize);
+
+    int getCount(@Param("fname") String fname,@Param("fphone") String fphone);
 
 }
