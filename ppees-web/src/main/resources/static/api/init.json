@@ -1,11 +1,11 @@
 {
   "homeInfo": {
     "title": "首页",
-    "href": "page/welcome-1.html?t=1"
+    "href": "cxRecord/getRecord"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
-    "image": "images/logo.png",
+    "title": "婚前检查",
+    "image": "",
     "href": ""
   },
   "menuInfo": [
@@ -181,25 +181,25 @@
           "child": [
             {
               "title": "常规扩展检查",
-              "href": "",
+              "href": "Routine/goregular_projectf",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "X射线检查",
-              "href": "",
+              "href": "Xray/goxradialf",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "口腔检查",
-              "href": "",
+              "href": "OralCavity/gonvcavityf",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "",
+              "href": "InspectionResults/goexamine_resultf",
               "icon": "",
               "target": "_self"
             }
@@ -212,25 +212,25 @@
           "child": [
             {
               "title": "常规扩展检查",
-              "href": "",
+              "href": "Routine/goregular_projectm",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "X射线检查",
-              "href": "",
+              "href": "Xray/goxradialm",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "口腔检查",
-              "href": "",
+              "href": "OralCavity/gonvcavitym",
               "icon": "",
               "target": "_self"
             },
             {
               "title": "检查结果",
-              "href": "",
+              "href": "InspectionResults/goexamine_resultm",
               "icon": "",
               "target": "_self"
             }

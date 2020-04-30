@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.zxf.InspectionResultsMapper">
+    <resultMap id="RResult" type="RResult">
+        <id  property="rid" column="rid"/>
+        <result property="rentryname" column="rentryname" />
+        <result property="result" column="result" />
+        <result property="examinedoctorid" column="examinedoctorid" />
+        <association property="user" javaType="SysUser">
+            <id  property="id" column="id"/>
+            <result property="username" column="username" />
+        </association>
+    </resultMap>
+    <select id="getRResult" resultMap="RResult">
+        SELECT * FROM `r_result` r,`sys_user` s WHERE r.`examinedoctorid`=s.`id` and certificate=#{certificate}
+    </select>
+    <select id="getRResultCount" resultType="int">
+        SELECT count(*) FROM `r_result` r,`sys_user` s WHERE r.`examinedoctorid`=s.`id` and certificate=#{certificate}
+    </select>
+    <select id="getrecordByid" resultType="Record">
+        select * from `record` where rid=#{rid}
+    </select>
+    <select id="getUserByid" resultType="SysUser">
+        select * from sys_user where id=#{id}
+    </select>
+    <insert id="addrresult2" parameterType="RResult2">
+        INSERT INTO `r_result2`(`certificate`,`whetherabnormal`,`abnormalcondition`,`premaritalhealthexamination`,`resultsofconsultationandguidance`,`medicalhistory`,`examinesuggest`,`examinesuggestproject`,`examineattitude`,`referralhospital`,
+        <if test="referraldate!=null and referraldate!=''">
+        `referraldate`,
+        </if>
+        <if test="subsequentvisitdate!=null and referraldate!=''">
+            `subsequentvisitdate`,
+        </if>
+        <if test="premaritalexaminationcertificatedate!=null and referraldate!=''">
+            `premaritalexaminationcertificatedate`,
+        </if>
+        `examinedoctorid`,registrationtime)
+        VALUES(#{certificate},#{whetherabnormal},#{abnormalcondition},#{premaritalhealthexamination},#{resultsofconsultationandguidance},#{medicalhistory},#{examinesuggest},#{examinesuggestproject},#{examineattitude},#{referralhospital},
+        <if test="referraldate!=null and referraldate!=''">
+            #{referraldate},
+        </if>
+        <if test="subsequentvisitdate!=null and referraldate!=''">
+            #{subsequentvisitdate},
+        </if>
+        <if test="premaritalexaminationcertificatedate!=null and referraldate!=''">
+            #{premaritalexaminationcertificatedate},
+        </if>
+        #{examinedoctorid},#{registrationtime})
+    </insert>
+</mapper>

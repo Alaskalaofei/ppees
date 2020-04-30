@@ -5,4 +5,8 @@
     <select id="getrecordByid" resultType="Record">
         select * from `record` where rid=#{rid}
     </select>
+    <select id="getrresult2bycertificate" resultType="int">
+        select count(*) from `r_result2` where certificate=#{certificate}
+    </select>
+
 </mapper>

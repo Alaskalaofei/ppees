@@ -9,11 +9,11 @@ import java.util.Date;
 public class RResult2 {
 
   private Integer rid;
-  private Integer certificate;
+  private String certificate;
   private Integer whetherabnormal;
   private String abnormalcondition;
-  private String premaritalhealth_examination;
-  private String resultsof_consultationand_guidance;
+  private String premaritalhealthexamination;
+  private String resultsofconsultationandguidance;
   private String medicalhistory;
   private Integer examinesuggest;
   private String examinesuggestproject;
@@ -22,11 +22,14 @@ public class RResult2 {
   @JsonFormat(pattern = "yyyy-MM-dd")
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date referraldate;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date subsequentvisitdate;
   @JsonFormat(pattern = "yyyy-MM-dd")
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date premaritalexaminationcertificatedate;
-  private Integer eid;
+  private Integer examinedoctorid;
+  private  Date registrationtime;
 
   public Integer getRid() {
     return rid;
@@ -36,11 +39,12 @@ public class RResult2 {
     this.rid = rid;
   }
 
-  public Integer getCertificate() {
+
+  public String getCertificate() {
     return certificate;
   }
 
-  public void setCertificate(Integer certificate) {
+  public void setCertificate(String certificate) {
     this.certificate = certificate;
   }
 
@@ -60,20 +64,20 @@ public class RResult2 {
     this.abnormalcondition = abnormalcondition;
   }
 
-  public String getPremaritalhealth_examination() {
-    return premaritalhealth_examination;
+  public String getPremaritalhealthexamination() {
+    return premaritalhealthexamination;
   }
 
-  public void setPremaritalhealth_examination(String premaritalhealth_examination) {
-    this.premaritalhealth_examination = premaritalhealth_examination;
+  public void setPremaritalhealthexamination(String premaritalhealthexamination) {
+    this.premaritalhealthexamination = premaritalhealthexamination;
   }
 
-  public String getResultsof_consultationand_guidance() {
-    return resultsof_consultationand_guidance;
+  public String getResultsofconsultationandguidance() {
+    return resultsofconsultationandguidance;
   }
 
-  public void setResultsof_consultationand_guidance(String resultsof_consultationand_guidance) {
-    this.resultsof_consultationand_guidance = resultsof_consultationand_guidance;
+  public void setResultsofconsultationandguidance(String resultsofconsultationandguidance) {
+    this.resultsofconsultationandguidance = resultsofconsultationandguidance;
   }
 
   public String getMedicalhistory() {
@@ -140,11 +144,19 @@ public class RResult2 {
     this.premaritalexaminationcertificatedate = premaritalexaminationcertificatedate;
   }
 
-  public Integer getEid() {
-    return eid;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void setEid(Integer eid) {
-    this.eid = eid;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
+  }
+
+  public Date getRegistrationtime() {
+    return registrationtime;
+  }
+
+  public void setRegistrationtime(Date registrationtime) {
+    this.registrationtime = registrationtime;
   }
 }

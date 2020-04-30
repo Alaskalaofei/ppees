@@ -1,13 +1,17 @@
 package com.csdj.pojo;
 
 
+import java.util.Date;
+
 public class XRayExamineResult {
 
   private Integer id;
   private Integer equipmentnumber;
-  private Integer examineresult;
+  private String examineresult;
   private String examineresultdescribe;
-  private Integer eid;
+  private Integer examinedoctorid;
+  private Date examinedate;
+  private String certificate;
 
   public Integer getId() {
     return id;
@@ -25,11 +29,11 @@ public class XRayExamineResult {
     this.equipmentnumber = equipmentnumber;
   }
 
-  public Integer getExamineresult() {
+  public String getExamineresult() {
     return examineresult;
   }
 
-  public void setExamineresult(Integer examineresult) {
+  public void setExamineresult(String examineresult) {
     this.examineresult = examineresult;
   }
 
@@ -41,11 +45,27 @@ public class XRayExamineResult {
     this.examineresultdescribe = examineresultdescribe;
   }
 
-  public Integer getEid() {
-    return eid;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void setEid(Integer eid) {
-    this.eid = eid;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
+  }
+
+  public Date getExaminedate() {
+    return examinedate;
+  }
+
+  public void setExaminedate(Date examinedate) {
+    this.examinedate = examinedate;
+  }
+
+  public String getCertificate() {
+    return certificate;
+  }
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
   }
 }

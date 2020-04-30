@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>检查结果</title>
+		<link rel="stylesheet" href="/layui/css/layui.css">
+	</head>
+	<body>
+	<div class="layui-container">
+		<div class="layui-row">
+			<form class="layui-form" action="">
+				<div class="layui-col-md12" style="background-color: #F1F1F1;border: 1px solid #a4a2a2;border-top: 0px;">
+					<div class="layui-row">
+						<div class="layui-col-md10 layui-col-md-offset1">
+							<fieldset class="layui-elem-field" style="padding: 1%;">
+								<legend>基本信息</legend>
+								<div class="layui-row">
+									<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label">编号：</label>
+											<div class="layui-input-block">
+												<input type="text" name="title" id="rid" required lay-verify="required" placeholder="" autocomplete="off"
+													   class="layui-input">
+												<input type="hidden" id="certificate">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md6">
+										<div class="layui-form-item">
+											<label class="layui-form-label">姓名：</label>
+											<div class="layui-input-block">
+												<input type="text" name="title" id="name" required lay-verify="required" placeholder="" autocomplete="off"
+													   class="layui-input">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md12" style="margin-left: 2%;">
+										<table id="demo" lay-filter="test"></table>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="layui-elem-field" style="padding: 1%;">
+								<legend>诊断结果</legend>
+								<div class="layui-row">
+									<div class="layui-col-md12">
+										<div class="layui-form-item">
+											<label class="layui-form-label">检查结果：</label>
+											<div class="layui-input-block">
+												<input type="radio" name="yc" value="0" title="未见异常" checked>
+												<input type="radio" name="yc" value="1" title="存在异常情况,具体描述如下:">
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md12">
+										<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">异常情况：</label>
+											<div class="layui-input-block" style="width: 80%;">
+												<textarea name="desc" id="abnormalcondition" placeholder="" class="layui-textarea"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="layui-col-md12">
+										<div class="layui-form-item layui-form-text">
+											<label class="layui-form-label">疾病诊断：</label>
+											<div class="layui-input-block" style="width: 80%;">
+												<textarea name="desc" placeholder="" class="layui-textarea"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="layui-elem-field" style="padding: 1%;">
+								<legend>医生建议</legend>
+								<fieldset class="layui-elem-field" style="padding: 1%;">
+									<legend>医学建议</legend>
+									<div class="layui-row">
+										<div class="layui-col-md10 layui-col-md-offset1">
+											<div class="layui-form-item">
+												<div class="layui-inline" style="width: 50%;">
+													<div class="layui-input-inline">
+														<input type="checkbox" name="" title="未发现医学上不宜结婚的异常情况和疾病" lay-skin="primary">
+													</div>
+												</div>
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<input type="checkbox" name="" title="建议暂缓结婚" lay-skin="primary">
+													</div>
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<div class="layui-inline" style="width: 50%;">
+													<div class="layui-input-inline">
+														<input type="checkbox" name="" title="建议不宜生育" lay-skin="primary">
+													</div>
+												</div>
+												<div class="layui-inline">
+													<div class="layui-input-inline">
+														<input type="checkbox" name="" title="建议不以结婚" lay-skin="primary">
+													</div>
+												</div>
+											</div>
+											<div class="layui-form-item">
+												<div class="layui-inline" style="width: 50%;">
+													<div class="layui-input-inline">
+														<input type="checkbox" name="" title="建议采取医学措施，尊重受检者意原" lay-skin="primary">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+								<fieldset class="layui-elem-field" style="padding: 1%;">
+									<legend>详细检查信息</legend>
+									<div class="layui-row" style="margin-left: 8%;">
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">婚前卫生检查：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc"  id="premaritalhealthexamination" cols="60" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">咨询指导结果：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc" id="resultsofconsultationandguidance" cols="60" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">医生补充病历：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc" id="medicalhistory" cols="60" rows="5"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 30%;">进一步检查建议：</label>
+												<div class="layui-input-inline">
+													<select name="city" id="examinesuggest" lay-verify="required">
+														<option value="0"></option>
+														<option value="0">不需要检查</option>
+														<option value="1">本院进一步检查</option>
+														<option value="2">外院进一步检查</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 12%;">建议检查结果：</label>
+												<br />
+												<br />
+												<br />
+												<div class="layui-input-inline">
+													<textarea name="desc" id="examinesuggestproject"  cols="60" rows="1"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md12">
+											<div class="layui-form-item" style="margin-left: -21%">
+												<label class="layui-form-label" style="width: 35%;">婚检对象对进一步检查的态度：</label>
+												<div class="layui-input-inline">
+													<input type="radio" name="examineattitude" value="0" title="接受" checked>
+													<input type="radio" name="examineattitude" value="1" title="拒绝">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="layui-row" style="margin-left: 8%;">
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label">转诊医院：</label>
+												<div class="layui-input-inline">
+													<input type="text" name="title" id="referralhospital" required  lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label">转诊时间：</label>
+												<div class="layui-input-inline">
+													<input id="referraldate" type="text"   name="title" required   placeholder="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="layui-row" style="margin-left: -1%;">
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 35%;">预约复诊日期：</label>
+												<div class="layui-input-inline">
+													<input id="subsequentvisitdate" type="text"  name="title" required   placeholder="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md6">
+											<div class="layui-form-item">
+												<label class="layui-form-label" style="width: 35%;margin-left: -9%;">出具婚检证明日期：</label>
+												<div class="layui-input-inline">
+													<input id="premaritalexaminationcertificatedate" type="text" name="title" required   placeholder="" autocomplete="off" class="layui-input">
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</fieldset>
+							<div class="layui-row">
+								<div class="layui-col-md6" style="padding-left: 10%;">
+									<div class="layui-form-item">
+										<label class="layui-form-label">医生签名：</label>
+										<div class="layui-input-inline">
+											<input type="text" name="title" id="ysName" lay-verify="required|phone" readonly="readonly" autocomplete="off" class="layui-input">
+											<input type="hidden" id="ysid">
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-md6">
+									<div class="layui-form-item">
+										<label class="layui-form-label">登记日期：</label>
+										<div class="layui-input-block"  style="width:40%;">
+											<input id="registrationtime" type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+										</div>
+									</div>
+								</div>
+								<div class="layui-col-md6 layui-col-md-offset5">
+									<button type="button" class="layui-btn layui-btn-normal" style="width: 22%" id="baoc">保存</button>
+								</div>
+							</div>
+							<br />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div><br /><br /><br />
+	</body>
+	<script src="/layui/layui.js"></script>
+	<script>
+		layui.use(['form', 'laydate', 'jquery', 'table'], function() {
+			var form = layui.form,
+					laydate = layui.laydate,
+					table = layui.table,
+					$ = layui.jquery;
+			laydate.render({
+				elem: '#referraldate'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+			});
+			laydate.render({
+				elem: '#subsequentvisitdate'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+			});
+			laydate.render({
+				elem: '#premaritalexaminationcertificatedate'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			laydate.render({
+				elem: '#registrationtime'
+				//指定元素
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+
+			});
+			//第一个实例
+			table.render({
+				elem: '#demo',
+				height: 312,
+				width: 760,
+				url: 'getRResult',
+				where:{
+
+				},
+				cols: [
+					[
+						{field: 'rid',title: 'ID',width: 100,fixed: 'left'},
+						{field: 'rentryname',title: '项目名称',width: 200},
+						{field: 'result',title: '结果',width: 320},
+						{field: 'username', title: '检查医生', width: 140,templet:function (data) {return data.user.username;}},
+					]
+				],
+				id:"RResult"
+			});
+			function biaodancz(){
+				var certificate=$("#certificate").val();
+				table.reload('RResult',{
+					where:{
+						"certificate":certificate
+					}
+				})
+			}
+			$(document).ready(function(){
+				archives();
+				Doctor();
+
+			})
+			function Doctor() {
+				$.ajax({
+					url: "getUserByid",
+					data: "",
+					type: "post",
+					dataType: "text",
+					success: function (result) {
+						date = eval("(" + result + ")");
+						$("#ysName").val(date.username);
+						$("#ysid").val(date.id);
+					}
+				})
+			}
+			function archives(){
+				$.ajax({
+					url:"getrecordByid",
+					data:"",
+					type:"post",
+					dataType:"text",
+					success:function(result){
+						date=eval("("+result+")");
+						$("#name").val(date.fname);
+						$("#rid").val(date.rid);
+						$("#certificate").val(date.fcertificate);
+						biaodancz();
+					}
+				})
+			}
+			$("#baoc").click(function(){
+				jcjg();
+			})
+			function jcjg(){
+				var certificate=$("#certificate").val();//获取证件id
+				var whetherabnormal=$("input[name='yc']:checked").val();
+				var abnormalcondition=$("#abnormalcondition").val();
+				var premaritalhealthexamination=$("#premaritalhealthexamination").val();
+				var resultsofconsultationandguidance=$("#resultsofconsultationandguidance").val();
+				var medicalhistory=$("#medicalhistory").val()
+				var examinesuggest=$("#examinesuggest").val()
+				var examinesuggestproject=$("#examinesuggestproject").val()
+				var examineattitude=$("input[name='examineattitude']:checked").val();
+				var referralhospital=$("#referralhospital").val();
+				var referraldate=$("#referraldate").val();
+				var subsequentvisitdate=$("#subsequentvisitdate").val();
+				var premaritalexaminationcertificatedate=$("#premaritalexaminationcertificatedate").val();
+				var examinedoctorid=$("#ysid").val();
+				$.ajax({
+					url: "addrresult2",
+					data: {"certificate":certificate,"whetherabnormal":whetherabnormal,
+						"abnormalcondition":abnormalcondition, "premaritalhealthexamination":premaritalhealthexamination,
+						"resultsofconsultationandguidance":resultsofconsultationandguidance,"medicalhistory":medicalhistory,
+						"examinesuggest":examinesuggest,"examinesuggestproject":examinesuggestproject,
+						"examineattitude":examineattitude,"referralhospital":referralhospital,
+						"referralhospital":referralhospital,"referraldate":referraldate,
+						"subsequentvisitdate":subsequentvisitdate,"premaritalexaminationcertificatedate":premaritalexaminationcertificatedate,
+						"examinedoctorid":examinedoctorid
+					},
+					type: "post",
+					dataType: "text",
+					success: function(result) {
+						if (result=="true"){
+							var myDate = new Date();
+							$("#registrationtime").val(myDate.toLocaleDateString());
+							alert("保存成功");
+						}else{
+							alert("保存失败");
+						}
+					}
+				})
+			}
+		})
+	</script>
+</html>

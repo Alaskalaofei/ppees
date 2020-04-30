@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GetControll {
 
     /**
-     * 自定义发送短信页面页面
+     * 跳转登录
      * @return
      * */
     @RequestMapping("getlogin")

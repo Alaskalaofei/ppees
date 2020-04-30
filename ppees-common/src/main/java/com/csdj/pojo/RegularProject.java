@@ -10,9 +10,7 @@ public class RegularProject {
 
   private Integer id;
   private String certificate;
-  private Integer beforediseasetype;
   private String beforediseasename;
-  private Integer nowdiseasetype;
   private String nowdiseasename;
   private Integer morbiditynumber;
   @JsonFormat(pattern = "yyyy-MM-dd")
@@ -28,7 +26,8 @@ public class RegularProject {
   private Integer boynumber;
   private Integer girlnumber;
   private Integer whetherHereditarydisease;
-  private Integer eId;
+  private Integer examinedoctorid;
+  private Date examinedate;
 
   public Integer getId() {
     return id;
@@ -46,28 +45,12 @@ public class RegularProject {
     this.certificate = certificate;
   }
 
-  public Integer getBeforediseasetype() {
-    return beforediseasetype;
-  }
-
-  public void setBeforediseasetype(Integer beforediseasetype) {
-    this.beforediseasetype = beforediseasetype;
-  }
-
   public String getBeforediseasename() {
     return beforediseasename;
   }
 
   public void setBeforediseasename(String beforediseasename) {
     this.beforediseasename = beforediseasename;
-  }
-
-  public Integer getNowdiseasetype() {
-    return nowdiseasetype;
-  }
-
-  public void setNowdiseasetype(Integer nowdiseasetype) {
-    this.nowdiseasetype = nowdiseasetype;
   }
 
   public String getNowdiseasename() {
@@ -90,7 +73,7 @@ public class RegularProject {
     return lastmorbiditydate;
   }
 
-  public void setLastmorbiditydate(java.sql.Date lastmorbiditydate) {
+  public void setLastmorbiditydate(Date lastmorbiditydate) {
     this.lastmorbiditydate = lastmorbiditydate;
   }
 
@@ -158,11 +141,19 @@ public class RegularProject {
     this.whetherHereditarydisease = whetherHereditarydisease;
   }
 
-  public Integer geteId() {
-    return eId;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void seteId(Integer eId) {
-    this.eId = eId;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
+  }
+
+  public Date getExaminedate() {
+    return examinedate;
+  }
+
+  public void setExaminedate(Date examinedate) {
+    this.examinedate = examinedate;
   }
 }

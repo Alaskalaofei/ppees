@@ -6,8 +6,17 @@ public class RResult {
   private Integer rid;
   private String rentryname;
   private String result;
-  private Integer eid;
+  private Integer examinedoctorid;
   private String certificate;
+  private  SysUser user;
+
+  public SysUser getUser() {
+    return user;
+  }
+
+  public void setUser(SysUser user) {
+    this.user = user;
+  }
 
   public Integer getRid() {
     return rid;
@@ -33,12 +42,12 @@ public class RResult {
     this.result = result;
   }
 
-  public Integer getEid() {
-    return eid;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void setEid(Integer eid) {
-    this.eid = eid;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
   }
 
   public String getCertificate() {

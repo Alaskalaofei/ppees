@@ -1,13 +1,18 @@
 package com.csdj.pojo;
 
 
+import java.util.Date;
+
 public class DKqDescribe {
 
   private Integer id;
-  private Integer dNumber;
-  private Integer dNormal;
+  private Integer dnumber;
+  private Integer dnormal;
   private String describe;
-  private Integer eid;
+  private Integer examinedoctorid;
+  private Date examinedate;
+  private String certificate;
+  private  String examineresult;
 
   public Integer getId() {
     return id;
@@ -17,20 +22,20 @@ public class DKqDescribe {
     this.id = id;
   }
 
-  public Integer getdNumber() {
-    return dNumber;
+  public Integer getDnumber() {
+    return dnumber;
   }
 
-  public void setdNumber(Integer dNumber) {
-    this.dNumber = dNumber;
+  public void setDnumber(Integer dnumber) {
+    this.dnumber = dnumber;
   }
 
-  public Integer getdNormal() {
-    return dNormal;
+  public Integer getDnormal() {
+    return dnormal;
   }
 
-  public void setdNormal(Integer dNormal) {
-    this.dNormal = dNormal;
+  public void setDnormal(Integer dnormal) {
+    this.dnormal = dnormal;
   }
 
   public String getDescribe() {
@@ -41,11 +46,35 @@ public class DKqDescribe {
     this.describe = describe;
   }
 
-  public Integer getEid() {
-    return eid;
+  public Integer getExaminedoctorid() {
+    return examinedoctorid;
   }
 
-  public void setEid(Integer eid) {
-    this.eid = eid;
+  public void setExaminedoctorid(Integer examinedoctorid) {
+    this.examinedoctorid = examinedoctorid;
+  }
+
+  public Date getExaminedate() {
+    return examinedate;
+  }
+
+  public void setExaminedate(Date examinedate) {
+    this.examinedate = examinedate;
+  }
+
+  public String getCertificate() {
+    return certificate;
+  }
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
+  }
+
+  public String getExamineresult() {
+    return examineresult;
+  }
+
+  public void setExamineresult(String examineresult) {
+    this.examineresult = examineresult;
   }
 }

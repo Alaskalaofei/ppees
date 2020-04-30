@@ -14,4 +14,9 @@ public class MedicalCertificateServiceImpl implements MedicalCertificateService 
     public Record getrecordByid(Integer rid) {
         return mapper.getrecordByid(rid);
     }
+
+    @Override
+    public int getrresult2bycertificate(String certificate) {
+        return mapper.getrresult2bycertificate(certificate);
+    }
 }

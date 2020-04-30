@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>口腔检查女</title>
+		<link rel="stylesheet" href="/layui/css/layui.css">
+		<style type="text/css">
+			.layui-form-label {
+				width: 120px;
+			}
+			
+			.layui-inline {
+				margin-left: 100px;
+			}
+			
+			strong {
+				opacity: 0.7;
+				font-size: 17px;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div class="layui-container" style="width: 1100px;">
+		<form class="layui-form" action="" style="margin-top: 20px;">
+			<div class="layui-col-md6">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">系统编号</label>
+					<div class="layui-input-block">
+						<input type="text" name="title" id="rid" readonly="readonly" required lay-verify="required"  autocomplete="off" class="layui-input">
+						<input type="hidden" id="certificate">
+					</div>
+				</div>
+
+
+			</div>
+			<div class="layui-col-md6">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="margin-left: -50px;">姓名</label>
+					<div class="layui-input-block">
+						<input type="text" name="title" id="name" readonly="readonly" required lay-verify="required"  autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+
+			</div>
+
+			<br />
+			<fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+				<div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" style="margin-left: -50px;">设备检查  :</label>
+						<div class="layui-input-block">
+							<input type="text" name="title" id="dnumber" required lay-verify="required" autocomplete="off" class="layui-input">
+						</div>
+					</div>
+
+					<div class="layui-form-item layui-form-text">
+						<div class="layui-input-block">
+							<span style="margin-left:-100px;"> 设备所见  : </span><textarea placeholder="" id="examineresult" class="layui-textarea"></textarea>
+						</div>
+					</div>
+
+				</div>
+
+				<div>
+
+					<input type="radio" name="sex" id="zc" checked value="正常" title="检查正常，未发现异常"><br />
+					<input type="radio" name="sex" id="yc" value="异常" title="异常:描述如下"><br />
+					<div class="layui-form-item layui-form-text">
+						<div class="layui-input-block" >
+							<textarea placeholder=""  disabled="true" class="layui-textarea" id="ycsr"></textarea>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+
+
+
+			<br />
+			<hr />
+			<br />
+			<div class="layui-form-item">
+				<div class="layui-inline">
+					<label class="layui-form-label">医师签名: : </label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" id="ysName" lay-verify="required|phone" readonly="readonly" autocomplete="off" class="layui-input">
+						<input type="hidden" id="ysid">
+					</div>
+				</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">检查时间 : </label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" id="test2" readonly="readonly" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+			</div>
+			<div class="layui-form-item" style="align-content: center;margin-left: 200px;">
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<button class="layui-btn  layui-btn-sm" type="button" id="baoc"> 保 存 </button>
+					</div>
+				</div>
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<button type="button" class="layui-btn layui-btn-sm" onclick='javascript:window.print()'>
+							打印
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+	</body>
+	<script src="/layui/layui.js"></script>
+	<script type="text/javascript ">
+		layui.use(['layer','jquery','form','laydate'],function() {
+			var layer = layui.layer;
+			var	form = layui.form;
+			var laydate = layui.laydate;
+			var $ = layui.jquery;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#test1' //指定元素
+			});
+			laydate.render({
+				elem: '#test2' //指定元素
+			});
+			form.on('radio', function(data){
+				if(data.value=='正常'){
+					$("#ycsr").attr("disabled",true);
+				}else if(data.value=='异常') {
+					$("#ycsr").attr("disabled",false);
+				}
+			});
+
+			$("#baoc").click(function(){
+				kqjc();
+
+			})
+			/**
+			 * 口腔检查
+			 */
+			function kqjc(){
+
+				var certificate=$("#certificate").val();
+				var examinedoctorid=$("#ysid").val();
+				var examineresult=$("#examineresult").val();
+				var dnumber=$("#dnumber").val();
+				var dnormalval=$("input[name='sex']:checked").val();
+				var dnormal;
+				if (dnormalval=="正常"){
+					dnormal=0;
+				}else{
+					dnormal=1;
+				}
+
+				var describe=$("#ycsr").val();
+
+				$.ajax({
+					url: "addOralCavity",
+					data: {"certificate":certificate,"examinedoctorid":examinedoctorid,"examineresult":examineresult,"dnumber":dnumber,"dnormal":dnormal,"describe":describe},
+					type: "post",
+					dataType: "text",
+					success: function(result) {
+						if (result=="true"){
+							jcjg();
+						}else{
+							alert("保存失败");
+						}
+					}
+				})
+			}
+
+			/**
+			 * 检查结果
+			 */
+			function jcjg(){
+				var certificate=$("#certificate").val();
+				var examinedoctorid=$("#ysid").val();
+				var rentryname="口腔检查";
+				var dnormalval=$("input[name='sex']:checked").val();
+				$.ajax({
+					url: "addRResult",
+					data: {"certificate":certificate,"rentryname":rentryname,"result":dnormalval,"examinedoctorid":examinedoctorid},
+					type: "post",
+					dataType: "text",
+					success: function (result) {
+						if (result=="true"){
+							var myDate = new Date();
+							$("#test2").val(myDate.toLocaleDateString());
+							alert("保存成功");
+						}else{
+							alert("保存失败");
+						}
+					}
+				})
+			}
+			$(document).ready(function(){
+				archives();
+				Doctor();
+			})
+			function Doctor() {
+				$.ajax({
+					url: "getUserByid",
+					data: "",
+					type: "post",
+					dataType: "text",
+					success: function (result) {
+						date = eval("(" + result + ")");
+						$("#ysName").val(date.username);
+						$("#ysid").val(date.id);
+					}
+				})
+			}
+			function archives(){
+				$.ajax({
+					url:"getrecordByid",
+					data:"",
+					type:"post",
+					dataType:"text",
+					success:function(result){
+						date=eval("("+result+")");
+						$("#name").val(date.fname);
+						$("#rid").val(date.rid);
+						$("#certificate").val(date.fcertificate);
+					}
+				})
+			}
+
+		});
+	</script>
+
+</html>

@@ -7,16 +7,19 @@
 		<link rel="stylesheet" href="/layui/css/layui.css" />
 	</head>
 	<body>
-		<div id="main" style="width:70%;margin:20px auto;">
-	<table style="width: 60%;float:left;" >
+		<div id="main" style="width:80%;margin:20px auto;">
+	<table style="width: 60%;float:left;margin:20px auto;">
 			<tr>
 			<td>
 			<div>
-			<div>
-            <span>系统编号： </span>
-            <input type="text" readonly="readonly" id="ID" name="ID">
-				<input type="hidden" id="certificate">
-       		</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">系统编号：</label>
+					<div class="layui-input-inline">
+						<input name="phone" class="layui-input" type="text" id="ID" autocomplete="off" lay-verify="required|phone" readonly="readonly">
+						<input type="hidden" id="certificate">
+					</div>
+				</div>
+				<hr/>
        		</div>
 			</td>
 			
@@ -26,40 +29,54 @@
 			<tr>
 			<td>
 			<div>
-			<div>
-            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名： </span>
-            <input type="text"  readonly="readonly" name="mname"  id="mname">
-       		</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label>
+					<div class="layui-input-inline">
+						<input name="phone" class="layui-input" type="text" id="mname" readonly="readonly" autocomplete="off" lay-verify="required|phone">
+					</div>
+				</div>
+				<hr/>
        		</div>
 			</td>
 			</tr>
 			<tr>
 			<td >
 			<div >
-			<div >
-            <span >性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别： </span>
-            <input type="text"   readonly="readonly" id="sex" name="fidCard">
-       		</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+					<div class="layui-input-inline">
+						<input name="phone" class="layui-input" type="text" id="sex" readonly="readonly" autocomplete="off" lay-verify="required|phone">
+					</div>
+				</div>
+				<hr/>
        		</div>
 			</td>
 			</tr>
 			<tr>
 			<td>
 			<div>
-			<div>
-            <span>对方姓名： </span>
-            <input type="text" readonly="readonly" id="fname" name="fbirthDate">
-       		</div>
+				<div class="layui-inline">
+					<label class="layui-form-label">对方姓名：</label>
+					<div class="layui-input-inline">
+						<input name="phone" class="layui-input" type="text" id="fname" readonly="readonly" autocomplete="off" lay-verify="required|phone">
+					</div>
+				</div>
+				<hr/>
        		</div>
 			</td>
 			</tr>
 			<tr>
 			<td>
-			&nbsp;&nbsp;&nbsp;直系、三代内旁系血亲关系：<span id="intermarry"></span>
+				<div>
+
+						直系、三代内旁系血亲关系：
+						<span id="intermarry"></span>
+
+				</div>
 			</td>
 			</tr>
 		</table>
-		
+
 		<table style="float:left;width: 40%;">
 		<tr>
 			<td>
@@ -69,13 +86,13 @@
 			</td>
 		</tr>
 		</table>
-		
-		<div style="padding: 23% 0px 0px 0px">
+		<br/>
+		<div style="padding: 20px 20px 20px 20px">
 		<div>
-		<div>
-			<h3>婚前医学检查结果：</h3>
-		</div>
-		<table width="100%">
+			<fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+			<legend>婚前医学检查结果：</legend>
+            <br/>
+		<table width="100%"  style="margin: 20px 20px 20px 20px">
 			<tr>
 				<td>
 				<div>
@@ -97,19 +114,19 @@
 				</td>
 			</tr>
 			</table>
-			
-			<div>
+			<br/>
+			<div style="margin: 20px 20px 20px 20px">
 			<textarea style="border:1px solid powderblue;" rows="4" cols="100" id="yic"></textarea>
 			</div>
+			</fieldset>
         </div>
 		
 		
 		
 		<div >
-		<div>
-			<h3>医学意见</h3>
-		</div>
-			<div>
+			<fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+				<legend>医学意见：</legend>
+			<div style="margin: 20px 20px 20px 20px">
 				<table>
 				<tr>
 				<td>
@@ -168,17 +185,18 @@
 				</tr>
 				</table>
 			</div>
+			</fieldset>
         </div>
 
         <table border="0"  cellspacing="" cellpadding="" width="100%">
 			<tr style="text-align: center;">
 				<td class="tdsmall">
-					<button type="submit"  id="myButton" data-loading-text="Loading..." class="layui-btn layui-btn-xs"  autocomplete="off">
+					<button type="button"  id="myButton"  class="layui-btn layui-btn-xs"  autocomplete="off">
 		 保存(s)
 		</button>
 
-		<button type="button" id="myButton3" data-loading-text="Loading..."  class="layui-btn layui-btn-xs" autocomplete="off">
-		 打印预览
+		<button type="button" id="myButton3"   class="layui-btn layui-btn-xs" autocomplete="off">
+		 打印
 		</button>
 		
 		</td>
@@ -186,6 +204,7 @@
 		</table>
         </div>
 </div>
+
 		<script src="/layui/layui.js "></script>
 		<script type="text/javascript ">
 			layui.use(['form', 'jquery', 'laydate'], function() {
@@ -217,7 +236,24 @@
 						}
 					})
 				}
+				$("#myButton").click(function(){
+					var certificate=$("#certificate").val();
+					$.ajax({
+						url:"getrresult2bycertificate",
+						data:{"certificate":certificate},
+						type:"post",
+						dataType:"text",
+						success:function(result){
+							if (result=="false"){
+								layer.msg("检查未完成，不能进行此操作");
+							}else{
+								layer.msg("保存成功");
 
+							}
+
+						}
+					})
+				});
 			})
 		</script>
 

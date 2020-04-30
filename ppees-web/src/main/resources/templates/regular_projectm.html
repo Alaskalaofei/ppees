@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>常规项目检查男</title>
+	<link rel="stylesheet" href="/layui/css/layui.css">
+	<link rel="stylesheet" href="/css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+	<div class="layui-fluid" style="width:1100px;">
+		<br />
+		<div class="layui-row">
+			<form class="layui-form " method="post" action="" target="">
+				<div class="layui-col-md12" style="background-color: #F1F1F1;border: 1px solid #a4a2a2;">
+					<div class="layui-row">
+						<div class="layui-col-md12">
+							<br />
+							<fieldset class="table-search-fieldset layui-form-pane" style="padding: 1%;">
+								<legend>基本信息</legend>
+								<div style="padding-left: 5%">
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label ">编号：</label>
+											<div class="layui-input-inline">
+												<input type="text" name="title" id="rid" required lay-verify="required" placeholder="请输入编号" autocomplete="off"
+													   class="layui-input" />
+												<input type="hidden" id="certificate">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">姓名：</label>
+											<div class="layui-input-inline">
+												<input type="text" id="mname" name="title" required lay-verify="required" placeholder="请输入性别" autocomplete="off"
+													   class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">性别：</label>
+											<div class="layui-input-inline">
+												<input type="text" name="title"  value="男" required lay-verify="required" placeholder="请输入职业" autocomplete="off"
+													   class="layui-input" >
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<div class="layui-inline">
+											<label class="layui-form-label">对方姓名：</label>
+											<div class="layui-input-inline">
+												<input type="text" id="fname" name="title" required lay-verify="required" placeholder="请输入性别" autocomplete="off"
+													   class="layui-input" >
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">对方性别：</label>
+											<div class="layui-input-inline">
+												<input type="text" name="title" required lay-verify="required" placeholder="请输入性别" autocomplete="off"
+													   class="layui-input" value="女">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">职业：</label>
+											<div class="layui-input-inline">
+												<input type="text" id="occupation" name="title" required lay-verify="required" placeholder="请输入职业" autocomplete="off"
+													   class="layui-input">
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="table-search-fieldset" style="padding: 1%">
+								<legend>既往病史</legend>
+								<div>
+
+									<div class="layui-form-item">
+										<label class="layui-form-label">疾病名称</label>
+										<div class="layui-input-block ">
+											<input id="beforeDiseaseName" name="beforeDiseaseName" type="text" style="width: 80%" placeholder="" autocomplete="off"
+												   class="layui-input">
+										</div>
+									</div>
+
+									<div class="layui-form-item" style="margin-left: -2%">
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 200px;">若为精神疾病，发病次数:</label>
+											<div class="layui-input-block">
+												<input type="text" style="width: 30%;" name="morbidityNumber" id="morbidityNumber" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label" style="width: 200px">最近一次发病时间:</label>
+											<div class="layui-input-inline">
+												<input id="lastMorbidityDate" name="lastMorbidityDate" type="text"style="width: 50%;" autocomplete="off" class="layui-input">
+										</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">是否服药</label>
+											<div class="layui-input-block">
+												<input type="radio" name="whetherMedicine" value="0" title="是">
+												<input type="radio" name="whetherMedicine" value="1" title="否" checked>
+											</div>
+										</div>
+									</div>
+
+
+
+									<div class="layui-form-item" style="margin-left: 1%">
+										<div class="layui-inline">
+											<label class="layui-form-label">手术记录：</label>
+											<div class="layui-input-block">
+												<span id="whetherOperationWU">
+													<input type="radio" name="whetherOperation"  value="0" title="无" checked>
+												</span>
+												<span id="whetherOperationYOU">
+													<input type="radio" name="whetherOperation" value="1" title="有" >
+												</span>
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">手术名称：</label>
+											<div class="layui-input-block">
+												<input type="text" name="operationName" disabled id="operationName" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+										<div class="layui-inline">
+											<label class="layui-form-label">手术时间：</label>
+											<div class="layui-input-block">
+												<input id="operationDate" type="text" disabled name="operationDate" placeholder="" autocomplete="off" class="layui-input">
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="table-search-fieldset" style="padding: 1%;">
+								<legend>现病史</legend>
+
+
+
+								<div class="layui-form-item">
+									<label class="layui-form-label">疾病名称</label>
+									<div class="layui-input-block ">
+										<input id="nowDiseaseName" name="nowDiseaseName" type="text" style="width: 80%" class="layui-input">
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="table-search-fieldset" style="padding: 1%;">
+								<legend>婚育史</legend>
+								<div class="layui-form-item">
+									<div class="layui-inline">
+										<div class="layui-input-block">
+											<input type="radio" name="whetherMarried" value="0" title="无" checked>
+											<input type="radio" name="whetherMarried" value="1" title="有">
+											<input type="radio" name="whetherMarried" value="2" title="未婚先孕">
+										</div>
+									</div>
+									<div class="layui-inline">
+										<label class="layui-form-label">足月女：</label>
+										<div class="layui-input-inline">
+											<input type="text" name="girlNumber" id="girlNumber" value="0" style="width: 50%;" autocomplete="off" class="layui-input">
+										</div>
+									</div>
+									<div class="layui-inline">
+										<label class="layui-form-label">足月子：</label>
+										<div class="layui-input-inline">
+											<input type="text" name="boyNumber" id="boyNumber" value="0" style="width: 50%;" autocomplete="off" class="layui-input">
+										</div>
+									</div>
+								</div>
+
+
+								<div class="layui-form-item">
+									<div class="layui-inline">
+										<label class="layui-form-label" style="width: 200px">子女是否患有遗传性疾病</label>
+										<div class="layui-input-inline">
+											<span id="whetherHereditaryDiseaseWU">
+												<input type="radio" name="whetherHereditaryDisease" value="0" title="无" checked>
+											</span>
+											<span id="whetherHereditaryDiseaseYOU">
+												<input type="radio" name="whetherHereditaryDisease" value="1" title="有">
+											</span>
+										</div>
+									</div>
+									<div class="layui-inline">
+										<label class="layui-form-label">疾病名称：</label>
+										<div class="layui-input-inline">
+											<input type="text" disabled name="hereditaryDiseaseName" id="hereditaryDiseaseName" autocomplete="off" class="layui-input">
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="layui-row">
+						<div class="layui-col-md6" style="padding-left: 20%;">
+							<div class="layui-form-item">
+								<label class="layui-form-label">医生签名：</label>
+								<div class="layui-input-inline">
+									<input type="text" name="title" id="ysName" lay-verify="required|phone" readonly="readonly" autocomplete="off" class="layui-input">
+									<input type="hidden" id="ysid">
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="layui-form-item">
+								<label class="layui-form-label">登记时间：</label>
+								<div class="layui-input-inline">
+									<input id="examineDate" type="text" class="layui-input" placeholder="yyyy-MM-dd" style="width: 50%;">
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md6 layui-col-md-offset5">
+							<button type="button" class="layui-btn layui-btn-normal"  style="width: 22%" id="save">保存</button>
+						</div>
+					</div>
+					<br />
+				</div>
+			</form>
+		</div>
+	</div>
+</div><br /><br /><br />
+</body>
+<script src="/layui/layui.js"></script>
+<script>
+	layui.use(['form', 'laydate', 'jquery'], function() {
+		var form = layui.form,
+				laydate = layui.laydate,
+				$ = layui.jquery,
+				layer=layui.layer;
+		laydate.render({
+			elem: '#lastMorbidityDate'
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+		});
+		laydate.render({
+			elem: '#operationDate'
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+		});
+		laydate.render({
+			elem: '#examineDate'
+				,format:'yyyy-MM-dd'
+				,type:'date'
+				,trigger: 'click'
+		});
+
+		//点击无禁用遗传疾病输入
+		$("#whetherHereditaryDiseaseWU").click(function () {
+			$("#hereditaryDiseaseName").addClass("layui-disabled");
+			$("#hereditaryDiseaseName").prop('disabled', true);
+			$("#hereditaryDiseaseName").val("");
+			form.render();
+		})
+		//点击有解除禁用遗传疾病输入
+		$("#whetherHereditaryDiseaseYOU").click(function () {
+			$("#hereditaryDiseaseName").removeClass("layui-disabled")
+			$("#hereditaryDiseaseName").prop('disabled', false);
+			form.render();
+		})
+
+		//点击无禁用手术信息输入
+		$("#whetherOperationWU").click(function () {
+
+			$("#operationName").attr("disabled",true);
+
+
+			$("#operationDate").attr("disabled",true);
+
+			form.render();
+		})
+		//点击有解除禁用手术信息输入
+		$("#whetherOperationYOU").click(function () {
+			$("#operationName").attr("disabled",false);
+			$("#operationDate").attr("disabled",false);
+
+		})
+		$("#save").click(function () {
+			layer.msg("保存成功");
+
+		})
+		$(document).ready(function(){
+			archives();
+			Doctor();
+
+		})
+		function Doctor() {
+			$.ajax({
+				url: "getUserByid",
+				data: "",
+				type: "post",
+				dataType: "text",
+				success: function (result) {
+					date = eval("(" + result + ")");
+					$("#ysName").val(date.username);
+					$("#ysid").val(date.id);
+				}
+			})
+		}
+		function archives(){
+			$.ajax({
+				url:"getrecordByid",
+				data:"",
+				type:"post",
+				dataType:"text",
+				success:function(result){
+					date=eval("("+result+")");
+					$("#mname").val(date.bname);
+					$("#fname").val(date.fname);
+					$("#rid").val(date.rid);
+					$("#certificate").val(date.bcertificate);
+					$("#occupation").val(date.boccupation);
+				}
+			})
+		}
+
+
+
+
+	});
+</script>
+</html>

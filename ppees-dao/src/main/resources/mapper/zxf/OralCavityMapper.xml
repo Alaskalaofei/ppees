@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csdj.mapper.zxf.OralCavityMapper">
+
+    <select id="getrecordByid" resultType="Record">
+        select * from `record` where rid=#{rid}
+    </select>
+    <select id="getUserByid" resultType="SysUser">
+        select * from sys_user where id=#{id}
+    </select>
+    <insert id="addOralCavity" parameterType="DKqDescribe">
+        INSERT INTO d_kq_describe(dnumber,`dnormal`,`describe`,`examinedoctorid`,`examinedate`,`certificate`,`examineresult`)
+        VALUES(#{dnumber},#{dnormal},#{describe},#{examinedoctorid},#{examinedate},#{certificate},#{examineresult})
+    </insert>
+    <insert id="addrresult" parameterType="RResult">
+        INSERT INTO `r_result`(`rentryname`,`result`,`examinedoctorid`,`certificate`)
+        VALUES(#{rentryname},#{result},#{examinedoctorid},#{certificate})
+    </insert>
+</mapper>

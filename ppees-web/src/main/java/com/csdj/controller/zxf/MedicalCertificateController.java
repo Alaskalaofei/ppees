@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("MedicalCertificate")
 public class MedicalCertificateController {
@@ -29,11 +31,23 @@ public class MedicalCertificateController {
     public String goInspectioncertificatef(){
         return "Inspectioncertificatef";
     }
+
     @RequestMapping("getrecordByid")
     @ResponseBody
-    public Object getrecordByid(){
-        Integer rid=1;
-        Record record=service.getrecordByid(rid);
+    public Object getrecordByid(HttpSession session){
+        Record list= (Record) session.getAttribute("Record");
+        Record record=service.getrecordByid(list.getRid());
         return record;
+    }
+    @RequestMapping("getrresult2bycertificate")
+    @ResponseBody
+    public Object getrresult2bycertificate(String certificate){
+        int record=service.getrresult2bycertificate(certificate);
+        if (record>0){
+            return "true";
+        }else{
+            return "false";
+        }
+
     }
 }
