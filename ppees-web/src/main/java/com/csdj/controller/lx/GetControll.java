@@ -38,6 +38,16 @@ public class GetControll {
     {
         return "texted";
     }
+    /**
+     * 短信模板
+     * @return
+     */
+    @RequestMapping("getsmstemplate")
+    public String getsmstemplate()
+    {
+        return "smstemplate";
+    }
+
 
     /**
      * 超声影像页面

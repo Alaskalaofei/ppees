@@ -2,6 +2,7 @@ package com.csdj.service.lx;
 
 import com.csdj.pojo.FollowUpVisit;
 import com.csdj.pojo.Record;
+import com.csdj.pojo.smstemplate;
 
 import java.util.Date;
 import java.util.List;
@@ -47,4 +48,16 @@ public interface FollowUpVisitService {
      * @return
      */
     Integer findaddFollowUpVisit(List<FollowUpVisit> followUpVisitList);
+    /**
+     * 查询下拉框
+     * @return
+     */
+    List<smstemplate> findsmstemplate();
+
+    /**
+     * 查询单个短信模板数据
+     * @param smsid
+     * @return
+     */
+    smstemplate findsmstemplateBysmsid(Integer smsid);
 }

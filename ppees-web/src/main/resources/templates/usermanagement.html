@@ -19,74 +19,62 @@
         }
     </style>
 </head>
-<body class="layui-form" style="background-color:#eee;padding: 20px;">
-<div class="layui-fluid" style="width: 100%;">
-    <label class="layui-form-label" style="background-color: rgb(94, 176, 208); border-width: 0px 1px 0px 0px; border-bottom-style: solid; border-bottom-color: rgb(177, 177, 177); text-align: left; font-size: 16px; width: 100%; margin-bottom: 30px;">用户管理</label><div class="layui-row">
-    <div class="layui-col-md6" style="margin-right: 10px; width: 100.866%;">
-        <div id="tab_div" class="layui-col-md6" style="width: 20%;">
-            <label class="layui-form-label" style="background-color: rgb(113, 192, 208); border-width: 0px 1px 0px 0px; border-bottom-style: solid; border-bottom-color: rgb(177, 177, 177); text-align: left; font-size: 16px; width: 95%; margin-bottom: 1px; margin-right: 0px;">用户列表</label><div class="layui-row" style="width: 100%;height: 219px;">
+<body class="layui-form" style="background-color:#eee;">
+<div class="layui-fluid">
+    <div class="layui-row">
+    <div class="layui-col-md6">
+        <div id="tab_div" class="layui-col-md12">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend>所有用户</legend>
+            </fieldset>
             <table id="test" class="layui-table" lay-filter="layuidemo"></table>
-            <div class="layui-form layui-border-box layui-table-view" style=" " lay-filter="LAY-table-1" lay-id="userTableReload">
-                <div class="layui-table-box">
-                    <div class="layui-table-header">
-                        <table class="layui-table" lay-filter="tab_h" cellspacing="0" cellpadding="0" border="0">
-                            <thead>
-                            <tr><th class=" layui-unselect" data-field="id" data-key="1-0-0"><div class="layui-table-cell laytable-cell-1-0-0" align="center">
-                                <span>ID</span><span class="layui-table-sort layui-inline"><i title="升序" class="layui-edge layui-table-sort-asc"></i><i title="降序" class="layui-edge layui-table-sort-desc"></i></span>
-                            </div>
-                            </th><th data-field="username" data-key="1-0-1"><div class="layui-table-cell laytable-cell-1-0-1" align="center">
-                                <span>题目</span>
-                            </div>
-                            </th></tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="layui-table-body layui-table-main">
-                        <table class="layui-table" cellspacing="0" cellpadding="0" border="0"></table>
-                    </div>
-                </div>
-                <style>
-                    .laytable-cell-1-0-0 {}.laytable-cell-1-0-1 {}
-                </style>
-            </div>
         </div>
         </div>
-        <div class="layui-col-md6" style="height: 308px; width: 80%;">
-            <label class="layui-form-label" style="background-color: rgb(94, 176, 208); border-width: 0px 1px 0px 0px; border-bottom-style: solid; border-bottom-color: rgb(177, 177, 177); text-align: left; font-size: 16px; width: 100%; margin-bottom: 50px;">用户信息</label>
-            <form id=form_yh class="layui-form" style="width: 100%;">
+
+        <div class="layui-col-md6">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend>用户管理</legend>
+            </fieldset>
+              <form id=form_yh class="layui-form">
                 <input type="hidden" name="id" id="id">
             <div class="layui-form-item">
-                <div class="layui-inline" style="width: 40%;">
-                    <label class="layui-form-label">用户姓名:</label><div class="layui-input-inline" style="width: 75%;">
-                    <input name="username" id="username" class="layui-input" type="text" autocomplete="off" />
+                <div class="layui-inline">
+                    <label class="layui-form-label">用户姓名:</label><div class="layui-input-inline">
+                    <input name="username" id="username" style="width: 350%;" class="layui-input" type="text" autocomplete="off" />
                 </div>
                 </div>
-                <div class="layui-inline" style="width: 40%;">
-                    <label class="layui-form-label">用户权限:</label><div class="layui-input-inline" style="width: 75%;">
+            </div>
+                <div class="layui-form-item">
+                    <div style="width: 350%;" class="layui-inline">
+                        <label class="layui-form-label">用户权限:</label><div class="layui-input-inline">
                         <select name="identity"  id="identity">
                             <option  value="-1">请选择</option>
                             <option  value="超级管理员">超级管理员</option>
                             <option value="普通医生">普通医生</option>
                             <option value="化验医生">化验医生</option>
                         </select>
+                    </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             <div class="layui-form-item">
-                <div class="layui-inline" style="width: 40%; margin-right: 0px;">
-                    <label class="layui-form-label">密码:</label><div class="layui-input-inline" style="width: 75%;">
-                    <input id="password" name="password" class="layui-input" type="text" autocomplete="off" />
+                <div class="layui-inline"><label class="layui-form-label">密码:</label>
+                    <div class="layui-input-inline">
+                    <input style="width: 350%;" id="password" name="password" class="layui-input" type="text" autocomplete="off" />
                 </div>
                 </div>
-                <div class="layui-inline" style="width: 40%;">
-                    <label class="layui-form-label">确认密码:</label><div class="layui-input-inline" style="width: 75%;">
-                    <input id="yespassword" name="yespassword" class="layui-input" type="text" autocomplete="off" />
-                </div>
-                </div>
+
             </div>
+                <div class="layui-form-item">
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label">确认密码:</label><div class="layui-input-inline">
+                        <input style="width: 350%;" id="yespassword" name="yespassword" class="layui-input" type="text" autocomplete="off" />
+                    </div>
+                    </div>
+                </div>
             <div class="layui-form-item">
                 <div class="layui-input-block" style="text-align: center;">
-                    <span id="addspan"  onclick="adduser()" class="layui-btn layui-btn-sm" style="width: 10%;" >新增</span><span  onclick="updateuser()" class="layui-btn layui-btn-sm" style="width: 10%;" >保存修改</span><span onclick="deleteuser()" class="layui-btn layui-btn-sm" style="width: 10%;">删除</span><span  onclick="fomrReset()" class="layui-btn layui-btn-sm" style="width: 10%;" >清空</span>
+                    <span id="addspan"  onclick="adduser()" class="layui-btn layui-btn-lg">新增</span><span  onclick="updateuser()" class="layui-btn layui-btn-lg"  >保存修改</span><span onclick="deleteuser()" class="layui-btn layui-btn-lg">删除</span><span  onclick="fomrReset()" class="layui-btn layui-btn-lg" style="width: 10%;" >清空</span>
                 </div>
             </div>
         </form>
