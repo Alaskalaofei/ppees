@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.csdj.mapper.lx.SmsTemplateMapper">
+   <!--查询-->
+    <select id="getsmstemplate" resultType="smstemplate">
+        SELECT * FROM `smstemplate`
+        <where>
+            <if test="smstemplatecontent!=null and smstemplatecontent!=''">
+                `smstemplatecontent`LIKE CONCAT('%',#{smstemplatecontent},'%')
+            </if>
+        </where>
+        LIMIT #{index},#{pageSize}
+    </select>
+    <!--查询总数-->
+    <select id="getsmstemplatecount" resultType="java.lang.Integer">
+        SELECT count(*) FROM `smstemplate`
+        <where>
+            <if test="smstemplatecontent!=null and smstemplatecontent!=''">
+                `smstemplatecontent`LIKE CONCAT('%',#{smstemplatecontent},'%')
+            </if>
+        </where>
+    </select>
+    <!--查询单个-->
+    <select id="getsmstemplateBysmstemplatecontent" resultType="smstemplate">
+        SELECT * FROM `smstemplate` where `smstemplatecontent`=#{smstemplatecontent}
+    </select>
+    <!--新增-->
+    <insert id="addsmstemplate" parameterType="smstemplate">
+          INSERT INTO `smstemplate`(`smstemplatecontent`)
+          VALUES(#{smstemplatecontent})
+    </insert>
+</mapper>

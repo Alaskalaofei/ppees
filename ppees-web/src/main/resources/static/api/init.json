@@ -114,6 +114,13 @@
               "icon": "fa fa-envelope",
               "target": "_self"
             }
+          ,
+            {
+              "title": "短信模板列表",
+              "href": "GetControll/getsmstemplate",
+              "icon": "",
+              "target": "_self"
+            }
           ]
         }
       ]

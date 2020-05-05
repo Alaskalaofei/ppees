@@ -69,4 +69,13 @@
             (#{follow.rid},#{follow.assessmentcontent})
         </foreach>
     </insert>
+
+    <select id="getsmstemplate" resultType="smstemplate">
+        select * from `smstemplate`
+    </select>
+
+    <select id="getsmstemplateBysmsid" resultType="smstemplate">
+         select * from `smstemplate` where `smsid`=#{smsid}
+    </select>
+
 </mapper>

@@ -2,6 +2,7 @@ package com.csdj.mapper.lx;
 
 import com.csdj.pojo.FollowUpVisit;
 import com.csdj.pojo.Record;
+import com.csdj.pojo.smstemplate;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -50,4 +51,16 @@ public interface FollowUpVisitMapper {
      */
         Integer addFollowUpVisit(List<FollowUpVisit> followUpVisitList);
 
+    /**
+     * 查询下拉框
+     * @return
+     */
+    List<smstemplate> getsmstemplate();
+
+    /**
+     * 查询单个短信模板数据
+     * @param smsid
+     * @return
+     */
+    smstemplate getsmstemplateBysmsid(Integer smsid);
 }

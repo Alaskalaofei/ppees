@@ -3,6 +3,7 @@ package com.csdj.ppeesserviceimpl.lx;
 import com.csdj.mapper.lx.FollowUpVisitMapper;
 import com.csdj.pojo.FollowUpVisit;
 import com.csdj.pojo.Record;
+import com.csdj.pojo.smstemplate;
 import com.csdj.service.lx.FollowUpVisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,16 @@ public class FollowUpVisitServiceimpl implements FollowUpVisitService {
     @Override
     public Integer getFollowUpVisitBydateByCoutn(String creationtime1, String creationtime2) {
         return mapper.getFollowUpVisitBydateByCoutn(creationtime1,creationtime2);
+    }
+
+    @Override
+    public List<smstemplate> findsmstemplate() {
+        return mapper.getsmstemplate();
+    }
+
+    @Override
+    public smstemplate findsmstemplateBysmsid(Integer smsid) {
+        return mapper.getsmstemplateBysmsid(smsid);
     }
 
     @Override

@@ -3,12 +3,12 @@ package com.csdj.controller.lx;
 import com.alibaba.fastjson.JSON;
 import com.csdj.pojo.FollowUpVisit;
 import com.csdj.pojo.Record;
+import com.csdj.pojo.smstemplate;
 import com.csdj.service.lx.FollowUpVisitService;
 import com.csdj.util.HttpClientUtil;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -59,6 +59,13 @@ public class FollowUpVisitController {
     }
 
 
+    @RequestMapping("/getRecordselect")
+    private List<smstemplate> getRecordselect()
+    {
+        return service.findsmstemplate();
+    }
+
+
     //用户名
   /*  @Value("${sms.Uid}")*/
     private static String Uid="saolaofei";
@@ -69,7 +76,7 @@ public class FollowUpVisitController {
 
     @RequestMapping(value="/addlistsms")
     @ResponseBody
-    public Integer addlistsms(@RequestBody List<Record> records)
+    public Integer addlistsms(@RequestBody Map<String,Object> map)
     {
         /*短信接口*/
         HttpClientUtil client = HttpClientUtil.getInstance();
@@ -77,13 +84,24 @@ public class FollowUpVisitController {
         Integer smsresult = 0;
         /*待添加的已发短信的数据*/
         List<FollowUpVisit> addfoll=new ArrayList<>();
+        /*发信人电话与短信模板*/
+        /*电话*/
+        List<Record> list= (List<Record>) map.get("Recordlist");
+        ObjectMapper mapper = new ObjectMapper();
+        List<Record> records = mapper.convertValue(list, new TypeReference<List<Record>>() { });
+        /*模板id*/
+        int smsid=Integer.parseInt((String) map.get("smsid"));
+        /*查询模板*/
+        smstemplate smstemplate=service.findsmstemplateBysmsid(smsid);
+        /**/
+
         FollowUpVisit followUpVisit;
         for (Record record:records) {
-            StringBuilder sb = new StringBuilder("尊敬的,你好,请到检验报告科拿取报告");//构造一个StringBuilder对象（尊敬的,你好,请到检验报告科拿取报告）
+         /*   StringBuilder sb = new StringBuilder("尊敬的,你好,请到检验报告科拿取报告");//构造一个StringBuilder对象（尊敬的,你好,请到检验报告科拿取报告）
             sb.insert(3, record.getFname());//在指定的位置1，插入指定的字符串
-            String smsText = sb.toString();
+            String smsText = sb.toString();*/
 //UTF发送
-            int result = client.sendMsgUtf8(Uid, Key, smsText, record.getFphone());
+            int result = client.sendMsgUtf8(Uid, Key, smstemplate.getSmstemplatecontent(), record.getFphone());
             if(result>0){
                 System.out.println("UTF8成功发送条数=="+result);
                 smsresult+=1;
@@ -92,7 +110,7 @@ public class FollowUpVisitController {
                      followUpVisit=new FollowUpVisit();
                     /*添加到添加的已发短信的数据*/
                     followUpVisit.setRid(record.getRid());
-                    followUpVisit.setAssessmentcontent(smsText);
+                    followUpVisit.setAssessmentcontent(smstemplate.getSmstemplatecontent());
                     addfoll.add(followUpVisit);
                 }
             }else{
